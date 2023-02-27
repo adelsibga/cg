@@ -12,8 +12,6 @@ function getCoordinate(str) {
     const openBracket = str.indexOf('(')
     const closeBracket = str.indexOf(')')
 
-    console.log(openBracket)
-
     return parseInt(str.slice(openBracket + 1, closeBracket))
 }
 
