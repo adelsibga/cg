@@ -9,10 +9,12 @@ function getCoordinate(str) {
         return 0
     }
 
-    const openBracketIdx = str.indexOf('(')
-    const closeBracketIdx = str.indexOf(')')
+    const openBracket = str.indexOf('(')
+    const closeBracket = str.indexOf(')')
 
-    return parseInt(str.slice(openBracketIdx + 1, closeBracketIdx))
+    console.log(openBracket)
+
+    return parseInt(str.slice(openBracket + 1, closeBracket))
 }
 
 function handleDragAndDrop(element, deltaX, deltaY) {

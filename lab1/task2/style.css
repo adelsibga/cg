@@ -13,3 +13,7 @@ svg {
     width: 100vw;
     height: 100vh;
 }
+
+g:hover {
+    cursor: pointer;
+}
