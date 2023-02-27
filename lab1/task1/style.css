@@ -11,36 +11,39 @@
     bottom: 0;
     left: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: row;
     justify-content: center;
     margin: auto;
     gap: 20%;
 }
 
+svg {
+    overflow: visible;
+}
+
 .first-letter {
-    animation: animateLetter 3s ease-in infinite;
+    fill: red;
 }
 
 .second-letter {
-    animation: animateLetter 3s ease-in infinite;
-    animation-delay: .3s;
+    fill: green;
 }
 
 .third-letter {
-    animation: animateLetter 3s ease-in infinite;
-    animation-delay: .6s;
+    fill: blue;
 }
 
 @keyframes animateLetter {
     0% {
-        transform: translate3d(0, -200px, 0);
+        transform: translate3d(0, -400px, 0);
+        transition: all .3s ease-in;
     }
     50% {
         transform: translate3d(0, 0, 0);
+        transition: all .3s ease-in;
     }
     100% {
-        transform: translate3d(0, -200px, 0);
-
+        transform: translate3d(0, -400px, 0);
     }
 }

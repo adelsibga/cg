@@ -1,15 +1,18 @@
-const firstLetter = document.querySelector('.first-letter')
-const secondLetter = document.querySelector('.second-letter')
-const thirdLetter = document.querySelector('.third-letter')
+const letters = document.querySelectorAll('svg')
 
-const setRectilinearUniformlyAcceleratedMotion = () => {
-    const v = 50
-    const v0 = 50
-    const t = 3000
-    const delay = 300
-    
-    let a = (v - v0)/t
-    console.log(a)
+const ANIMATION_NAME = 'animateLetter'
+const ANIMATION_TIME_IN_SEC = 3
+const ANIMATION_TYPE = 'infinite'
+
+function animation() {
+    let letterIndex = 0
+
+    const interval = setInterval(() => {
+        if (letterIndex === letters.length - 1) {
+            clearInterval(interval)
+        }
+        letters[letterIndex++].style.animation = `${ANIMATION_NAME} ${ANIMATION_TIME_IN_SEC}s ${ANIMATION_TYPE}`
+    }, 300)
 }
 
-setRectilinearUniformlyAcceleratedMotion()
+animation()
