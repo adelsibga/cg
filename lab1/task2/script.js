@@ -26,7 +26,7 @@ function dragAndDrop(e, X, Y) {
     e.style.transform = `translateX(${X + x}px) translateY(${Y + y}px)`
 }
 
-function initListeners() {
+function initListeners() { // TODO: Избавиться от дублирования кода ниже
     fence.addEventListener('mousedown', () => {
         fenceDragging = true
     })

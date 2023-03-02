@@ -1,5 +1,5 @@
 const letters = document.querySelectorAll('svg')
-
+// TODO: реализовать прыжки букв как мячиков слева направо и не останавливать их прыжки
 const ANIMATION_NAME = 'animateLetter'
 const ANIMATION_DURATION = 1
 const ANIMATION_PROPS = 'cubic-bezier(0.215, 0.61, 0.355, 1) alternate infinite'
