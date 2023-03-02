@@ -15,38 +15,36 @@ function getCoordinate(str) {
     return parseInt(str.slice(openBracket + 1, closeBracket))
 }
 
-function handleDragAndDrop(element, deltaX, deltaY) {
-    const transforms = element.style.transform.split(' ')
+function dragAndDrop(e, X, Y) {
+    const transforms = e.style.transform.split(' ')
     const translateX = transforms.find(x => x.includes('translateX'))
     const translateY = transforms.find(x => x.includes('translateY'))
 
     const x = getCoordinate(translateX)
     const y = getCoordinate(translateY)
-    
-    element.style.transform = `translateX(${deltaX + x}px) translateY(${deltaY + y}px)`
+
+    e.style.transform = `translateX(${X + x}px) translateY(${Y + y}px)`
 }
 
 function initListeners() {
-    document.addEventListener('mouseup', () => {
-        fenceDragging = houseDragging = false
-    })
-    
     fence.addEventListener('mousedown', () => {
         fenceDragging = true
     })
-    
+
     house.addEventListener('mousedown', () => {
         houseDragging = true
     })
-    
+
+    document.addEventListener('mouseup', () => {
+        fenceDragging = houseDragging = false
+    })
+
     document.addEventListener('mousemove', (e) => {
         if (fenceDragging) {
-            Array.from(fence.children)
-                .forEach(c => handleDragAndDrop(c, e.movementX, e.movementY))
+            Array.from(fence.children).forEach(c => dragAndDrop(c, e.movementX, e.movementY))
         }
         else if (houseDragging) {
-            Array.from(house.children)
-                .forEach(c => handleDragAndDrop(c, e.movementX, e.movementY))
+            Array.from(house.children).forEach(c => dragAndDrop(c, e.movementX, e.movementY))
         }
     })
 }
