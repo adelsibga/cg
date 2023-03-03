@@ -26,14 +26,19 @@ function dragAndDrop(e, X, Y) {
     e.style.transform = `translateX(${X + x}px) translateY(${Y + y}px)`
 }
 
-function initListeners() { // TODO: Избавиться от дублирования кода ниже
-    fence.addEventListener('mousedown', () => {
-        fenceDragging = true
-    })
+function initListeners() {
+    const groupList = document.querySelectorAll('g')
 
-    house.addEventListener('mousedown', () => {
-        houseDragging = true
-    })
+    for (let i = 0; i < groupList.length; i++) {
+        groupList[i].addEventListener('mousedown', () => {
+            if (groupList[i] === fence) {
+                fenceDragging = true
+            }
+            else {
+                houseDragging = true
+            }
+        })
+    }
 
     document.addEventListener('mouseup', () => {
         fenceDragging = houseDragging = false
