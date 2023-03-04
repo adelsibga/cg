@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    margin: 1rem;
+    transition: opacity 0.2s;
+    text-align: center;
+    letter-spacing: 0.25rem;
+}
+
+.new-level-btn {
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    display: none;
+    margin-left: -50px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: opacity 0.5s, transform 0.5s, background-color 0.2s;
+    letter-spacing: .05em;
+    opacity: 0;
+    color: #fff;
+    border: 5px double #fff;
+    border-radius: 14px;
+    outline: none;
+    background-color: #111;
+}
+
+.new-level-btn:hover {
+    background-color: #333;
+}
+
+.new-level-btn:active {
+    background-color: #555;
+}
+
+.new-level-btn.new-level-btn-entrance {
+    transform: translateX(6rem);
+    opacity: 1;
+}
+
+.draggable-items {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 1rem 1.5rem 1rem;
+    transition: opacity 0.5s;
+}
+
+.draggable {
+    font-size: 4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 0.5rem;
+    cursor: move;
+    transition: opacity 0.2s;
+}
+
+.draggable:hover {
+    opacity: 0.5;
+}
+
+.matching-pairs {
+    transition: opacity 0.5s;
+}
+
+.matching-pair {
+    display: flex;
+    justify-content: space-between;
+    width: 22rem;
+    height: 6rem;
+    margin: 1rem auto;
+}
+
+.matching-pair span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    user-select: none;
+    text-align: center;
+}
+
+.label {
+    font-size: 2rem;
+    width: 15rem;
+}
+
+.droppable {
+    font-size: 4rem;
+    width: 6rem;
+    transition: 0.2s;
+    border: 3px dashed #111;
+    background-color: #fff;
+}
+
+.droppable-hover {
+    transform: scale(1.1);
+    background-color: #bee3f0;
+}
+
+.dropped {
+    border-style: solid;
+}
+
+.dragged {
+    cursor: default;
+    user-select: none;
+    opacity: 0.1;
+}
+
+.draggable.dragged:hover {
+    opacity: 0.1;
+}
+
+.fa, .fab, .fal, .far, .fas {
+    display: flex;
+    background-color: transparent;
+}

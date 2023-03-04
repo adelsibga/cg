@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+</head>
+<body>
+<section class="score">
+    <span class="correct">0</span>/<span class="total">0</span>
+    <button id="new-level-btn" class="new-level-btn">New level</button>
+</section>
+
+<section class="draggable-items"></section>
+
+<section class="matching-pairs"></section>
+
+<section class="js-start-modal modal-window">
+    <p class="modal-window__text">
+        Текст перед началом игры
+    </p>
+    <button class="js-start-close-btn modal-window__close-btn">
+        Начать играть
+    </button>
+</section>
+
+<section class="modal-window hidden">
+    <p class="modal-window__text">
+        Поздравляем, ты прошел игру!
+    </p>
+    <button class="modal-window__close-btn">
+        Играть еще
+    </button>
+</section>
+
+<div class="js-modal-overlay modal__overlay"></div>
+<script src="./scripts/script.js"></script>
+</body>
+</html>
+
+<!-- Типо компонента для modal window -->
+<!--<section class="js-modal-window-NAME modal-window">-->
+<!--    <button class="js-close-modal-window-btn-NAME">-->
+
+<!--    </button>-->
+<!--</section>-->
