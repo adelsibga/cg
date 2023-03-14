@@ -525,40 +525,15 @@ function initiateGame() {
     const startCloseModalBtn = document.querySelector('.js-start-close-btn')
     const modalOverlay = document.querySelector('.js-modal-overlay')
 
-    const closeModalWindow = (closeBtn, modalWindow) => {
-        closeBtn.addEventListener('click', () => {
-            modalWindow.classList.add('hidden')
-            modalOverlay.classList.add('hidden')
-        })
-    }
-
-    const openModalWindow = (openBtn, modalWindow) => {
-        openBtn.addEventListener('click', () => {
-            modalWindow.classList.remove('hidden')
-            modalOverlay.classList.remove('hidden')
-        })
-    }
-
-    closeModalWindow(startCloseModalBtn, startModal)
+    closeModalWindow(startCloseModalBtn, startModal, modalOverlay)
 
     const randomDraggableBrands = generateRandomItemsArray(totalDraggableItems, brands)
     const randomDroppableBrands = totalMatchingPairs < totalDraggableItems ? generateRandomItemsArray(totalMatchingPairs, randomDraggableBrands) : randomDraggableBrands
     const alphabeticallySortedRandomDroppableBrands = [...randomDroppableBrands].sort((a, b) => a.brandName.toLowerCase().localeCompare(b.brandName.toLowerCase()))
 
-    for (let i = 0; i < randomDraggableBrands.length; i++) {
-        draggableItems.insertAdjacentHTML('beforeend', `
-      <i class="fab fa-${randomDraggableBrands[i].iconName} draggable" draggable="true" style="color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"></i>
-    `)
-    }
+    getRandomBrand(randomDraggableBrands)
 
-    for (let i = 0; i < alphabeticallySortedRandomDroppableBrands.length; i++) {
-        matchingPairs.insertAdjacentHTML('beforeend', `
-      <div class="matching-pair">
-        <span class="label">${alphabeticallySortedRandomDroppableBrands[i].brandName}</span>
-        <span class="droppable" data-brand="${alphabeticallySortedRandomDroppableBrands[i].iconName}"></span>
-      </div>
-    `)
-    }
+    setDropZone(alphabeticallySortedRandomDroppableBrands)
 
     draggableElements = document.querySelectorAll('.draggable')
     droppableElements = document.querySelectorAll('.droppable')
@@ -603,11 +578,10 @@ function drop(event) {
 
     const draggableElementBrand = event.dataTransfer.getData('text')
     const droppableElementBrand = event.target.getAttribute('data-brand')
-    const isCorrectMatching = draggableElementBrand === droppableElementBrand
 
     total++
 
-    if (isCorrectMatching) {
+    if (draggableElementBrand === droppableElementBrand) {
         const draggableElement = document.getElementById(draggableElementBrand)
 
         event.target.classList.add('dropped')
@@ -627,9 +601,9 @@ function drop(event) {
     }
 }
 
-newLevelBtn.addEventListener('click', newLevelBtnClick)
+newLevelBtn.addEventListener('click', newLevel)
 
-function newLevelBtnClick() {
+function newLevel() {
     newLevelBtn.classList.remove('new-level-btn-entrance')
 
     correct = 0
@@ -664,7 +638,7 @@ function newLevelBtnClick() {
 }
 
 function generateRandomItemsArray(n, originalArray) {
-    let res = []
+    let result = []
     let clonedArray = [...originalArray]
 
     if (n > clonedArray.length) {
@@ -674,9 +648,42 @@ function generateRandomItemsArray(n, originalArray) {
     for (let i = 1; i <= n; i++) {
         const randomIndex = Math.floor(Math.random() * clonedArray.length)
 
-        res.push(clonedArray[randomIndex])
+        result.push(clonedArray[randomIndex])
         clonedArray.splice(randomIndex, 1)
     }
 
-    return res
+    return result
+}
+
+function closeModalWindow(closeBtn, modalWindow, modalOverlay) {
+    closeBtn.addEventListener('click', () => {
+        modalWindow.classList.add('hidden')
+        modalOverlay.classList.add('hidden')
+    })
+}
+
+function openModalWindow(openBtn, modalWindow, modalOverlay) {
+    openBtn.addEventListener('click', () => {
+        modalWindow.classList.remove('hidden')
+        modalOverlay.classList.remove('hidden')
+    })
+}
+
+function getRandomBrand(brands) {
+    for (let i = 0; i < brands.length; i++) {
+        draggableItems.insertAdjacentHTML('beforeend', `
+      <i class="fab fa-${brands[i].iconName} draggable" draggable="true" style="color: ${brands[i].color};" id="${brands[i].iconName}"></i>
+    `)
+    }
+}
+
+function setDropZone(sortedRandomDroppableBrands) {
+    for (let i = 0; i < sortedRandomDroppableBrands.length; i++) {
+        matchingPairs.insertAdjacentHTML('beforeend', `
+      <div class="matching-pair">
+        <span class="label">${sortedRandomDroppableBrands[i].brandName}</span>
+        <span class="droppable" data-brand="${sortedRandomDroppableBrands[i].iconName}"></span>
+      </div>
+    `)
+    }
 }

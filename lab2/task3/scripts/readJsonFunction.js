@@ -13,9 +13,17 @@ function readTextFile(file, callback) {
     rawFile.send(null)
 }
 
-readTextFile('../brands.json', function (text) {
+readTextFile('./brands.json', function (text) {
     brands = JSON.parse(text)
-    console.log(brands)
+    
+    for (let i = 0; i < brands.length; i++) {
+        const iconName = brands[i].iconName
+        const brandName = brands[i].brandName
+        const color = brands[i].color
 
-    console.log(brands[0].iconName)
+        console.log(iconName)
+        console.log(brandName)
+        console.log(color)
+        console.log('----------------')
+    }
 })
