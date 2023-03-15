@@ -29,16 +29,16 @@ function dragAndDrop(e, X, Y) {
 function initListeners() {
     const groupList = document.querySelectorAll('g')
 
-    for (let i = 0; i < groupList.length; i++) {
-        groupList[i].addEventListener('mousedown', () => {
-            if (groupList[i] === fence) {
+    groupList.forEach((elem) => {
+        elem.addEventListener('mousedown', () => {
+            if (elem === fence) {
                 fenceDragging = true
             }
             else {
                 houseDragging = true
             }
         })
-    }
+    })
 
     document.addEventListener('mouseup', () => {
         fenceDragging = houseDragging = false
