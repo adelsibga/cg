@@ -1,5 +1,4 @@
 const dragItems = document.querySelectorAll('.dragItem')
-const dragItem = document.querySelector('.dragItem')
 const dropZones = document.querySelectorAll('.dropZone')
 
 let draggedItem = null
@@ -84,5 +83,4 @@ function handleDrop(event) {
     const dropZoneGroup = event.target.getAttribute('data-zone')
 
     console.log(dropZoneGroup)
-
 }
