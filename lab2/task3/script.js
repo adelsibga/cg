@@ -43,6 +43,12 @@ function handleDragend() {
     
     this.classList.remove('dragItem--active')
     draggedItem = null
+
+    const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
+
+    if (nonDraggableItems.length === dragItems.length) {
+        console.log('level passed')
+    }
 }
 
 function handleDrag(event) {
