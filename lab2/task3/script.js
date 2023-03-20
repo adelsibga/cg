@@ -33,6 +33,9 @@ function handleDragstart() {
 }
 
 function handleDragend() {
+    const dataDragItem = this.getAttribute('data-pair')
+    console.log(dataDragItem)
+    
     this.classList.remove('dragItem--active')
     draggedItem = null
 }
@@ -53,7 +56,7 @@ function handleDragover(event) {
     event.preventDefault()
 }
 
-function handleDrop(event) {
+function handleDrop() {
     if (droppedItem) {
         if (droppedItem.parentElement === draggedItem.parentElement) {
             const children = Array.from(droppedItem.parentElement.children)
@@ -80,7 +83,6 @@ function handleDrop(event) {
 
     dropZones.forEach((x) => x.classList.remove('dropZone--active'))
 
-    const dropZoneGroup = event.target.getAttribute('data-zone')
-
+    const dropZoneGroup = this.getAttribute('data-zone')
     console.log(dropZoneGroup)
 }
