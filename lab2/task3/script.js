@@ -12,6 +12,8 @@ let dropZoneGroupGlobal = ''
 let draggedItem = null
 let droppedItem = null
 
+const levelNumber = window.location.pathname.slice(-6, -5)
+
 dragItems.forEach((dragItem) => {
     dragItem.addEventListener('dragstart', handleDragstart)
     dragItem.addEventListener('dragend', handleDragend)
@@ -43,6 +45,7 @@ function handleDragstart() {
 function handleDragend() {
     const dataDragItem = this.getAttribute('data-pair')
     if (dropZoneGroupGlobal === dataDragItem) {
+        playSoundPuk(levelNumber)
         this.setAttribute('draggable', 'false')
     }
 
@@ -117,4 +120,26 @@ function openModalWindow(openBtn, modalWindow) {
         modalWindow.classList.remove('hidden')
         modalOverlay.classList.remove('hidden')
     })
+}
+
+function playSoundPuk(level) {
+    let url = ''
+
+    const audio = new Audio()
+    switch (level) {
+        case '1':
+            url = './assets/sound/soundPuk.mp3'
+            break
+        case '2':
+            url = './assets/sound/soundLetsGo.mp3'
+            break
+        case '3':
+            url = './assets/sound/soundKefteme.mp3'
+            break
+        default:
+            url = './assets/sound/soundWin.mp3'
+            break
+    }
+    audio.src = url
+    audio.autoplay = true
 }
