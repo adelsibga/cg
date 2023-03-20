@@ -1,11 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .dropZone {
     display: flex;
     align-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    width: 240px;
-    height: 240px;
+    width: 270px;
+    height: 270px;
     margin: 15px;
     padding: 10px;
     border: 5px dashed #b1b1ff;
@@ -41,17 +53,45 @@
     min-width: 60px;
     height: auto;
     min-height: 60px;
-    margin: auto;
+    margin: 0 15px;
     padding: 30px;
     border: 5px dashed #b1b1ff;
     border-radius: 20px;
 }
 
-.d-flex {
+.game {
     display: flex;
     flex-direction: column;
 }
 
 .dropZone--active {
     border: 5px dashed blue;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px 0;
+}
+
+.header__title {
+    font: 600 48px/1.1 'Rubik', sans-serif;
+}
+
+.header__rules {
+    font: 600 18px/1.1 'Rubik', sans-serif;
+    position: relative;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: var(--default-transition) opacity 0.5s, transform 0.5s, background-color 0.2s;
+    letter-spacing: .05em;
+    color: #fff;
+    border-radius: 14px;
+    outline: none;
+    background-color: #111;
+}
+
+.header__rules:hover {
+    transition: var(--default-transition);
+    opacity: 0.85;
 }

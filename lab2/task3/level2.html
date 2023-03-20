@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Drag and drop</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="modal.css"/>
+    </head>
+    <body class="container">
+        <section class="header">
+            <h1 class="header__title">
+                Уровень 2\3
+            </h1>
+            <button class="js-open-modal-window-btn-start header__rules">
+                Открыть правила
+            </button>
+        </section>
+
+        <section class="game">
+            <div class="dropZoneWrapper">
+                <div id="first" class="dropZone" data-zone="1">
+                    <div class="dragItem" draggable="false" data-pair="1">1</div>
+                    <div class="dragItem" draggable="false" data-pair="1">1</div>
+                    <div class="dragItem" draggable="false" data-pair="1">1</div>
+                </div>
+                <div id="second" class="dropZone" data-zone="2">
+                    <div class="dragItem" draggable="false" data-pair="2">2</div>
+                    <div class="dragItem" draggable="false" data-pair="2">2</div>
+                </div>
+                <div id="third" class="dropZone" data-zone="3">
+                    <div class="dragItem" draggable="false" data-pair="3">3</div>
+                    <div class="dragItem" draggable="false" data-pair="3">3</div>
+                    <div class="dragItem" draggable="false" data-pair="3">3</div>
+                </div>
+            </div>
+            <div class="dropZone dragItemWrapper" data-zone="start">
+                <div class="dragItem" draggable="true" data-pair="2">2</div>
+                <div class="dragItem" draggable="false" data-pair="start">start</div>
+            </div>
+        </section>
+
+        <section class="js-modal-window-start modal-window modal-window__start hidden">
+            <h2 class="start__game-name">
+                Сгруппируй объекты
+            </h2>
+            <div class="start__rules-header">
+                Правила
+            </div>
+            <div class="start__rules-text">
+                Вам нужно отнести объекты к той или иной группе путем перетаскивания соответствующих объектов при помощи мыши в отводимые для них
+                области. Некоторые из объектов могут не принадлежать ни к одной из предложенных групп
+            </div>
+            <button class="js-close-modal-window-btn-start modal-window__close-btn">
+                Играть!
+            </button>
+        </section>
+
+        <section class="js-modal-window-level-passed modal-window modal-window__level-passed hidden">
+            <h2 class="level-passed__header">
+                Уровень пройден
+            </h2>
+            <a href="./level3.html" class="js-close-modal-window-btn-level-passed modal-window__close-btn">
+                Следующий уровень!
+            </a>
+        </section>
+
+        <section class="js-modal-overlay modal__overlay hidden"></section>
+        <script src="script.js"></script>
+    </body>
+</html>

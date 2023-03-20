@@ -1,6 +1,12 @@
 const dragItems = document.querySelectorAll('.dragItem')
 const dropZones = document.querySelectorAll('.dropZone')
 
+const closeStartModal = document.querySelector('.js-close-modal-window-btn-start')
+const openStartModal = document.querySelector('.js-open-modal-window-btn-start')
+const startModal = document.querySelector('.js-modal-window-start')
+const modalOverlay = document.querySelector('.js-modal-overlay')
+const levelPassedModal = document.querySelector('.js-modal-window-level-passed')
+
 let dropZoneGroupGlobal = ''
 
 let draggedItem = null
@@ -36,18 +42,17 @@ function handleDragstart() {
 
 function handleDragend() {
     const dataDragItem = this.getAttribute('data-pair')
-    
     if (dropZoneGroupGlobal === dataDragItem) {
         this.setAttribute('draggable', 'false')
     }
-    
+
     this.classList.remove('dragItem--active')
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
-
     if (nonDraggableItems.length === dragItems.length) {
-        console.log('level passed')
+        levelPassedModal.classList.remove('hidden')
+        modalOverlay.classList.remove('hidden')
     }
 }
 
@@ -95,4 +100,21 @@ function handleDrop() {
     dropZones.forEach((x) => x.classList.remove('dropZone--active'))
 
     dropZoneGroupGlobal = this.getAttribute('data-zone')
+}
+
+closeModalWindow(closeStartModal, startModal)
+openModalWindow(openStartModal, startModal)
+
+function closeModalWindow(closeBtn, modalWindow) {
+    closeBtn.addEventListener('click', () => {
+        modalWindow.classList.add('hidden')
+        modalOverlay.classList.add('hidden')
+    })
+}
+
+function openModalWindow(openBtn, modalWindow) {
+    openBtn.addEventListener('click', () => {
+        modalWindow.classList.remove('hidden')
+        modalOverlay.classList.remove('hidden')
+    })
 }
