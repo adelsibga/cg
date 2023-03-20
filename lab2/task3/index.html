@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/modal.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Drag and drop</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<section class="score">
-    <span class="correct">0</span>/<span class="total">0</span>
-    <button id="new-level-btn" class="new-level-btn">New level</button>
-</section>
+<div class="d-flex">
+    <div class="dropZoneWrapper">
+        <div id="first" class="dropZone" data-zone="first"></div>
+        <div id="second" class="dropZone" data-zone="second"></div>
+        <div id="third" class="dropZone" data-zone="third"></div>
+    </div>
+    <div class="dropZone dragItemWrapper" data-zone="start">
+        <div class="dragItem" draggable="true" data-item="1" data-pair="odd">1</div>
+        <div class="dragItem" draggable="true" data-item="2" data-pair="even">2</div>
+        <div class="dragItem" draggable="true" data-item="3" data-pair="odd">3</div>
+        <div class="dragItem" draggable="true" data-item="4" data-pair="even">4</div>
+        <div class="dragItem" draggable="true" data-item="5" data-pair="odd">5</div>
+        <div class="dragItem" draggable="true" data-item="6" data-pair="even">6</div>
+        <div class="dragItem" draggable="true" data-item="7" data-pair="odd">7</div>
+        <div class="dragItem" draggable="true" data-item="8" data-pair="even">8</div>
+        <div class="dragItem" draggable="true" data-item="9" data-pair="odd">9</div>
+        <div class="dragItem" draggable="true" data-item="10" data-pair="even">10</div>
+    </div>
+</div>
 
-<section class="draggable-items"></section>
-
-<section class="matching-pairs"></section>
-
-<section class="js-start-modal modal-window">
-    <p class="modal-window__text">
-        Текст перед началом игры
-    </p>
-    <button class="js-start-close-btn modal-window__close-btn">
-        Начать играть
-    </button>
-</section>
-
-<section class="modal-window hidden">
-    <p class="modal-window__text">
-        Поздравляем, ты прошел игру!
-    </p>
-    <button class="modal-window__close-btn">
-        Играть еще
-    </button>
-</section>
-
-<div class="js-modal-overlay modal__overlay"></div>
-<script src="./scripts/script.js"></script>
-<!--<script src="./scripts/readJsonFunction.js"></script>-->
+<script src="script.js"></script>
 </body>
 </html>
-
-<!-- Типо компонента для modal window -->
-<!--<section class="js-modal-window-NAME modal-window">-->
-<!--    <button class="js-close-modal-window-btn-NAME">-->
-
-<!--    </button>-->
-<!--</section>-->
