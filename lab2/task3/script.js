@@ -1,6 +1,8 @@
 const dragItems = document.querySelectorAll('.dragItem')
 const dropZones = document.querySelectorAll('.dropZone')
 
+let dropZoneGroupGlobal = ''
+
 let draggedItem = null
 let droppedItem = null
 
@@ -34,7 +36,10 @@ function handleDragstart() {
 
 function handleDragend() {
     const dataDragItem = this.getAttribute('data-pair')
-    console.log(dataDragItem)
+    
+    if (dropZoneGroupGlobal === dataDragItem) {
+        this.setAttribute('draggable', 'false')
+    }
     
     this.classList.remove('dragItem--active')
     draggedItem = null
@@ -83,6 +88,5 @@ function handleDrop() {
 
     dropZones.forEach((x) => x.classList.remove('dropZone--active'))
 
-    const dropZoneGroup = this.getAttribute('data-zone')
-    console.log(dropZoneGroup)
+    dropZoneGroupGlobal = this.getAttribute('data-zone')
 }
