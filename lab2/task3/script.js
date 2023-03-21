@@ -6,8 +6,11 @@ const openStartModal = document.querySelector('.js-open-modal-window-btn-start')
 const startModal = document.querySelector('.js-modal-window-start')
 const modalOverlay = document.querySelector('.js-modal-overlay')
 const levelPassedModal = document.querySelector('.js-modal-window-level-passed')
+const levelPassedButton = document.querySelector('.js-open-modal-window-level-passed')
 
-let dropZoneGroupGlobal = ''
+// const nonGroupItems = document.querySelectorAll('[data-pair="nonGroup"]')
+
+let dropZoneGroup = ''
 
 let draggedItem = null
 let droppedItem = null
@@ -44,8 +47,8 @@ function handleDragstart() {
 
 function handleDragend() {
     const dataDragItem = this.getAttribute('data-pair')
-    if (dropZoneGroupGlobal === dataDragItem) {
-        playSoundPuk(levelNumber)
+    if (dropZoneGroup === dataDragItem) {
+        playSound(levelNumber)
         this.setAttribute('draggable', 'false')
     }
 
@@ -53,9 +56,12 @@ function handleDragend() {
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
+    // - nonGroupItems.length
     if (nonDraggableItems.length === dragItems.length) {
         levelPassedModal.classList.remove('hidden')
         modalOverlay.classList.remove('hidden')
+        playSound() // проигрывать музыку после успешного прохождения уровня
+        showLevelPassedButton()
     }
 }
 
@@ -64,11 +70,11 @@ function handleDrag(event) {
 
 function handleDragenter(event) {
     event.preventDefault()
-    this.classList.add('dropZone--active')
+    this.classList.add('dropZoneActive')
 }
 
 function handleDragleave() {
-    this.classList.remove('dropZone--active')
+    this.classList.remove('dropZoneActive')
 }
 
 function handleDragover(event) {
@@ -100,13 +106,14 @@ function handleDrop() {
         this.append(draggedItem)
     }
 
-    dropZones.forEach((x) => x.classList.remove('dropZone--active'))
+    dropZones.forEach((x) => x.classList.remove('dropZoneActive'))
 
-    dropZoneGroupGlobal = this.getAttribute('data-zone')
+    dropZoneGroup = this.getAttribute('data-zone')
 }
 
 closeModalWindow(closeStartModal, startModal)
 openModalWindow(openStartModal, startModal)
+openModalWindow(levelPassedButton, levelPassedModal)
 
 function closeModalWindow(closeBtn, modalWindow) {
     closeBtn.addEventListener('click', () => {
@@ -122,7 +129,7 @@ function openModalWindow(openBtn, modalWindow) {
     })
 }
 
-function playSoundPuk(level) {
+function playSound(level) {
     let url = ''
 
     const audio = new Audio()
@@ -142,4 +149,21 @@ function playSoundPuk(level) {
     }
     audio.src = url
     audio.autoplay = true
+}
+
+function showLevelPassedButton() {
+    if (levelPassedButton.classList.contains('hidden')) {
+        levelPassedButton.classList.remove('hidden')
+    }
+}
+
+document.onkeydown = (e) => {
+    const allModal = document.querySelectorAll('.modalWindow')
+
+    if (e.code === 'Escape') {
+        allModal.forEach((e) => {
+            e.classList.add('hidden')
+        })
+        modalOverlay.classList.add('hidden')
+    }
 }

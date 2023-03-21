@@ -12,12 +12,17 @@
     </head>
     <body class="container">
         <section class="header">
-            <h1 class="header__title">
+            <h1 class="headerTitle">
                 Уровень 1\3
             </h1>
-            <button class="js-open-modal-window-btn-start header__rules">
-                Открыть правила
-            </button>
+            <div class="js-header-button-wrapper headerButtonWrapper">
+                <a href="./level2.html" class="js-open-modal-window-level-passed headerLevelPassed hidden">
+                    Следующий уровень
+                </a>
+                <button class="js-open-modal-window-btn-start headerRules">
+                    Открыть правила
+                </button>
+            </div>
         </section>
 
         <section class="game">
@@ -26,7 +31,7 @@
                 <div id="second" class="dropZone" data-zone="2"></div>
                 <div id="third" class="dropZone" data-zone="3"></div>
             </div>
-            <div class="dropZone dragItemWrapper" data-zone="start">
+            <div class="dropZone dragItemWrapper" data-zone="nonGroup">
                 <div class="dragItem" draggable="true" data-pair="1">1</div>
                 <div class="dragItem" draggable="true" data-pair="1">1</div>
                 <div class="dragItem" draggable="true" data-pair="1">1</div>
@@ -36,36 +41,36 @@
                 <div class="dragItem" draggable="true" data-pair="3">3</div>
                 <div class="dragItem" draggable="true" data-pair="3">3</div>
                 <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="start">start</div>
+                <div class="dragItem" draggable="true" data-pair="nonGroup">NG</div>
             </div>
         </section>
 
-        <section class="js-modal-window-start modal-window modal-window__start">
-            <h2 class="start__game-name">
+        <section class="js-modal-window-start modalWindow modalWindowStart">
+            <h2 class="gameName">
                 Сгруппируй объекты
             </h2>
-            <div class="start__rules-header">
+            <div class="startRulesHeader">
                 Правила
             </div>
-            <div class="start__rules-text">
+            <div class="startRulesText">
                 Вам нужно отнести объекты к той или иной группе путем перетаскивания соответствующих объектов при помощи мыши в отводимые для них
                 области. Некоторые из объектов могут не принадлежать ни к одной из предложенных групп
             </div>
-            <button class="js-close-modal-window-btn-start modal-window__close-btn">
+            <button class="js-close-modal-window-btn-start modalWindowCloseBtn">
                 Играть!
             </button>
         </section>
 
-        <section class="js-modal-window-level-passed modal-window modal-window__level-passed hidden">
-            <h2 class="level-passed__header">
+        <section class="js-modal-window-level-passed modalWindow modalWindowLevelPassed hidden">
+            <h2 class="levelPassedHeader">
                 Уровень пройден
             </h2>
-            <a href="./level2.html" class="js-close-modal-window-btn-level-passed modal-window__close-btn">
+            <a href="./level2.html" class="js-close-modal-window-btn-level-passed modalWindowCloseBtn">
                 Следующий уровень!
             </a>
         </section>
 
-        <section class="js-modal-overlay modal__overlay"></section>
+        <section class="js-modal-overlay modalOverlay"></section>
         <script src="script.js"></script>
     </body>
 </html>

@@ -2,7 +2,7 @@
     --default-transition: all .3s ease;
 }
 
-.modal-window {
+.modalWindow {
     font: 400 18px/1.27 'Rubik', sans-serif;
     position: absolute;
     z-index: 200;
@@ -27,26 +27,25 @@
     gap: 30px;
 }
 
-.modal-window__start {
+.modalWindowStart {
     max-width: 600px;
     max-height: 400px;
 }
 
-.start__game-name {
+.gameName {
     font: 600 48px/1.1 'Rubik', sans-serif;
 }
 
-.start__rules-header,
-.level-passed__header {
+.startRulesHeader,
+.levelPassedHeader {
     font: 600 24px/1.1 'Rubik', sans-serif;
 }
 
-.start__rules-text,
-.level-passed__text {
+.startRulesText {
     font: 400 18px/1.27 'Rubik', sans-serif;
 }
 
-.modal-window__close-btn {
+.modalWindowCloseBtn {
     font: 600 24px/1.27 'Rubik', sans-serif;
     padding: 10px 14px;
     cursor: pointer;
@@ -59,12 +58,12 @@
     background-color: #111;
 }
 
-.modal-window__close-btn:hover {
+.modalWindowCloseBtn:hover {
     transition: var(--default-transition);
     opacity: 0.85;
 }
 
-.modal__overlay {
+.modalOverlay {
     position: fixed;
     z-index: 100;
     top: 0;
@@ -75,7 +74,7 @@
     background-color: rgba(0, 0, 0, .55);
 }
 
-.modal-window__level-passed {
+.modalWindowLevelPassed {
 
 }
 
