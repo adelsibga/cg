@@ -56,7 +56,7 @@ function handleDragend() {
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
-    // - nonGroupItems.length
+    // - nonGroupItems.length // TODO: if NG items in NG zone then show level passed modal
     if (nonDraggableItems.length === dragItems.length) {
         levelPassedModal.classList.remove('hidden')
         modalOverlay.classList.remove('hidden')
@@ -131,7 +131,7 @@ function openModalWindow(openBtn, modalWindow) {
 
 function playSound(level) {
     let url = ''
-
+// TODO: stop active sound and play new sound
     const audio = new Audio()
     switch (level) {
         case '1':
