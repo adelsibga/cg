@@ -8,9 +8,11 @@ const modalOverlay = document.querySelector('.js-modal-overlay')
 const levelPassedModal = document.querySelector('.js-modal-window-level-passed')
 const levelPassedButton = document.querySelector('.js-open-modal-window-level-passed')
 
-// const nonGroupItems = document.querySelectorAll('[data-pair="nonGroup"]')
+const nonGroupItems = document.querySelectorAll('[data-pair="nonGroup"]')
+const nonGroupZone = document.querySelector('[data-zone="nonGroup"]')
 
 let dropZoneGroup = ''
+let isNonGroupItemsInNonGroupZone = undefined
 
 let draggedItem = null
 let droppedItem = null
@@ -56,13 +58,20 @@ function handleDragend() {
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
-    // - nonGroupItems.length // TODO: if NG items in NG zone then show level passed modal
-    if (nonDraggableItems.length === dragItems.length) {
+    // TODO: if NG items in NG zone then show level passed modal
+    if (nonDraggableItems.length === (dragItems.length - nonGroupItems.length) && isNonGroupItemsInNonGroupZone) { // TODO: check condition
         levelPassedModal.classList.remove('hidden')
         modalOverlay.classList.remove('hidden')
         playSound() // проигрывать музыку после успешного прохождения уровня
         showLevelPassedButton()
     }
+
+    nonGroupItems.forEach((e) => {
+        const dataNonGroupItem = e.getAttribute('data-pair')
+        if (dataNonGroupItem === nonGroupZone.getAttribute('data-zone')) { //
+            isNonGroupItemsInNonGroupZone = true
+        }
+    })
 }
 
 function handleDrag(event) {
@@ -133,15 +142,9 @@ function playSound(level) {
     let url = ''
 // TODO: stop active sound and play new sound
     const audio = new Audio()
-    switch (level) {
-        case '1':
+    switch (level !== undefined) {
+        case true:
             url = './assets/sound/soundPuk.mp3'
-            break
-        case '2':
-            url = './assets/sound/soundLetsGo.mp3'
-            break
-        case '3':
-            url = './assets/sound/soundKefteme.mp3'
             break
         default:
             url = './assets/sound/soundWin.mp3'
