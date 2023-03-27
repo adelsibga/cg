@@ -60,6 +60,47 @@
     border-radius: 20px;
 }
 
+.dragItemWrapper::before {
+    font: 400 18px/1.27 'Rubik', sans-serif;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    margin: auto;
+    content: 'Start zone';
+}
+
+.nonGroup {
+    position: relative;
+    width: auto;
+    min-width: 60px;
+    height: auto;
+    min-height: 60px;
+    padding: 30px;
+}
+
+.nonGroup::before {
+    font: 400 18px/1.27 'Rubik', sans-serif;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    margin: auto;
+    content: 'Items without group';
+}
+
 .game {
     display: flex;
     flex-direction: column;

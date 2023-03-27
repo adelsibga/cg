@@ -8,11 +8,7 @@ const modalOverlay = document.querySelector('.js-modal-overlay')
 const levelPassedModal = document.querySelector('.js-modal-window-level-passed')
 const levelPassedButton = document.querySelector('.js-open-modal-window-level-passed')
 
-const nonGroupItems = document.querySelectorAll('[data-pair="nonGroup"]')
-const nonGroupZone = document.querySelector('[data-zone="nonGroup"]')
-
 let dropZoneGroup = ''
-let isNonGroupItemsInNonGroupZone = undefined
 
 let draggedItem = null
 let droppedItem = null
@@ -58,20 +54,12 @@ function handleDragend() {
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
-    // TODO: if NG items in NG zone then show level passed modal
-    if (nonDraggableItems.length === (dragItems.length - nonGroupItems.length) && isNonGroupItemsInNonGroupZone) { // TODO: check condition
+    if (nonDraggableItems.length === dragItems.length) {
         levelPassedModal.classList.remove('hidden')
         modalOverlay.classList.remove('hidden')
-        playSound() // проигрывать музыку после успешного прохождения уровня
+        playSound()
         showLevelPassedButton()
     }
-
-    nonGroupItems.forEach((e) => {
-        const dataNonGroupItem = e.getAttribute('data-pair')
-        if (dataNonGroupItem === nonGroupZone.getAttribute('data-zone')) { //
-            isNonGroupItemsInNonGroupZone = true
-        }
-    })
 }
 
 function handleDrag(event) {
@@ -140,7 +128,6 @@ function openModalWindow(openBtn, modalWindow) {
 
 function playSound(level) {
     let url = ''
-// TODO: stop active sound and play new sound
     const audio = new Audio()
     switch (level !== undefined) {
         case true:
