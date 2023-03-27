@@ -62,3 +62,8 @@
     background: url('../assets/images/cognac.png') center no-repeat;
     background-size: cover;
 }
+
+.micrometer {
+    background: url('../assets/images/micrometer.jpg') center no-repeat;
+    background-size: cover;
+}

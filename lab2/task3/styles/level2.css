@@ -48,6 +48,11 @@
     background-size: cover;
 }
 
+.nissan {
+    background: url('../assets/images/nissan.jpeg') center no-repeat;
+    background-size: cover;
+}
+
 .subaru {
     background: url('../assets/images/subaru.jpg') center no-repeat;
     background-size: contain;
@@ -60,5 +65,10 @@
 
 .chery {
     background: url('../assets/images/chery.jpg') center no-repeat;
+    background-size: contain;
+}
+
+.bmw {
+    background: url('../assets/images/bmw.png') center no-repeat;
     background-size: contain;
 }
