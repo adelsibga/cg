@@ -7,8 +7,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="stylesheet" href="modal.css"/>
+        <link rel="stylesheet" href="./styles/style.css"/>
+        <link rel="stylesheet" href="./styles/level1.css"/>
+        <link rel="stylesheet" href="./styles/modal.css"/>
     </head>
     <body class="container">
         <section class="header">
@@ -27,21 +28,21 @@
 
         <section class="game">
             <div class="dropZoneWrapper">
-                <div class="dropZone" data-zone="1"></div>
-                <div class="dropZone" data-zone="2"></div>
-                <div class="dropZone" data-zone="3"></div>
+                <div class="dropZone builder" data-zone="builder"></div>
+                <div class="dropZone doctor" data-zone="doctor"></div>
+                <div class="dropZone teacher" data-zone="teacher"></div>
             </div>
             <div class="dropZone dragItemWrapper">
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="nonGroup">NG</div>
+                <div class="dragItem hammer" draggable="true" data-pair="builder"></div>
+                <div class="dragItem trowel" draggable="true" data-pair="builder"></div>
+                <div class="dragItem ladder" draggable="true" data-pair="builder"></div>
+                <div class="dragItem thermometer" draggable="true" data-pair="doctor"></div>
+                <div class="dragItem pill" draggable="true" data-pair="doctor"></div>
+                <div class="dragItem scalpel" draggable="true" data-pair="doctor"></div>
+                <div class="dragItem chalk" draggable="true" data-pair="teacher"></div>
+                <div class="dragItem globe" draggable="true" data-pair="teacher"></div>
+                <div class="dragItem pointer" draggable="true" data-pair="teacher"></div>
+                <div class="dragItem cognac" draggable="true" data-pair="nonGroup"></div>
             </div>
             <div class="dropZone nonGroup" data-zone="nonGroup"></div>
         </section>
@@ -72,6 +73,6 @@
         </section>
 
         <section class="js-modal-overlay modalOverlay"></section>
-        <script src="script.js"></script>
+        <script src="./scripts/script.js"></script>
     </body>
 </html>

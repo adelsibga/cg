@@ -1,0 +1,64 @@
+.korea {
+    background: url('../assets/images/korea.png') center no-repeat;
+    background-size: auto;
+}
+
+.daewoo {
+    background: url('../assets/images/daewoo.jpeg') center no-repeat;
+    background-size: contain;
+}
+
+.hyndai {
+    background: url('../assets/images/hyndai.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.ssangyong {
+    background: url('../assets/images/ssangyong.png') center no-repeat;
+    background-size: cover;
+}
+
+.sweden {
+    background: url('../assets/images/sweden.webp') center no-repeat;
+    background-size: contain;
+}
+
+.volvo {
+    background: url('../assets/images/volvo.png') center no-repeat;
+    background-size: contain;
+}
+
+.saab {
+    background: url('../assets/images/saab.png') center no-repeat;
+    background-size: cover;
+}
+
+.koenigsegg {
+    background: url('../assets/images/koenigsegg.png') center no-repeat;
+    background-size: contain;
+}
+
+.japan {
+    background: url('../assets/images/japan.webp') center no-repeat;
+    background-size: contain;
+}
+
+.toyota {
+    background: url('../assets/images/toyota.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+.subaru {
+    background: url('../assets/images/subaru.jpg') center no-repeat;
+    background-size: contain;
+}
+
+.mitsubishi {
+    background: url('../assets/images/mitsubishi.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.chery {
+    background: url('../assets/images/chery.jpg') center no-repeat;
+    background-size: contain;
+}

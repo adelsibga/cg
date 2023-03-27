@@ -1,0 +1,64 @@
+.builder {
+    background: url('../assets/images/builder.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.hammer {
+    background: url('../assets/images/hammer.jpg') center no-repeat;
+    background-size: contain;
+}
+
+.trowel {
+    background: url('../assets/images/trowel.jpg') center no-repeat;
+    background-size: contain;
+}
+
+.ladder {
+    background: url('../assets/images/ladder.png') center no-repeat;
+    background-size: cover;
+}
+
+.doctor {
+    background: url('../assets/images/doctor.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.thermometer {
+    background: url('../assets/images/thermometer.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.pill {
+    background: url('../assets/images/pill.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.scalpel {
+    background: url('../assets/images/scalpel.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.teacher {
+    background: url('../assets/images/teacher.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.chalk {
+    background: url('../assets/images/chalk.png') center no-repeat;
+    background-size: cover;
+}
+
+.globe {
+    background: url('../assets/images/globe.jpeg') center no-repeat;
+    background-size: contain;
+}
+
+.pointer {
+    background: url('../assets/images/pointer.webp') center no-repeat;
+    background-size: cover;
+}
+
+.cognac {
+    background: url('../assets/images/cognac.png') center no-repeat;
+    background-size: cover;
+}

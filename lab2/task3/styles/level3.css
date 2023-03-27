@@ -1,0 +1,64 @@
+.strings {
+    background: url('../assets/images/strings.jpg');
+    background-size: cover;
+}
+
+.harp {
+    background: url('../assets/images/harp.png') center no-repeat;
+    background-size: cover;
+}
+
+.gusli {
+    background: url('../assets/images/gusli.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+.guitar {
+    background: url('../assets/images/guitar.jpeg') center no-repeat;
+    background-size: cover;
+}
+
+.keys {
+    background: url('../assets/images/keys.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.synthesizer {
+    background: url('../assets/images/synthesizer.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.accordion {
+    background: url('../assets/images/accordion.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.piano {
+    background: url('../assets/images/piano.webp') center no-repeat;
+    background-size: cover;
+}
+
+.brass {
+    background: url('../assets/images/brass.webp') right no-repeat;
+    background-size: cover;
+}
+
+.flute {
+    background: url('../assets/images/flute.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.trumpet {
+    background: url('../assets/images/trumpet.webp') center no-repeat;
+    background-size: cover;
+}
+
+.bagpipes {
+    background: url('../assets/images/bagpipes.jpg') center no-repeat;
+    background-size: cover;
+}
+
+.drum {
+    background: url('../assets/images/drum.jpg') center no-repeat;
+    background-size: cover;
+}

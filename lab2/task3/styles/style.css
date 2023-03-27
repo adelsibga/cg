@@ -34,9 +34,8 @@
     margin: 10px;
     user-select: none;
     text-align: center;
-    color: white;
+    border: 1px solid #000;
     border-radius: 20px;
-    background-color: #b1b1ff;
 }
 
 .dragItemWrapper,
@@ -47,6 +46,7 @@
 }
 
 .dragItemWrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +107,7 @@
 }
 
 .dropZoneActive {
-    border: 5px dashed blue;
+    border: 5px dashed orange;
 }
 
 .header {

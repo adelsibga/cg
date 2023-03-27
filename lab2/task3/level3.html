@@ -7,8 +7,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="stylesheet" href="modal.css"/>
+        <link rel="stylesheet" href="./styles/style.css"/>
+        <link rel="stylesheet" href="./styles/level3.css"/>
+        <link rel="stylesheet" href="./styles/modal.css"/>
     </head>
     <body class="container">
         <section class="header">
@@ -27,21 +28,21 @@
 
         <section class="game">
             <div class="dropZoneWrapper">
-                <div class="dropZone" data-zone="1"></div>
-                <div class="dropZone" data-zone="2"></div>
-                <div class="dropZone" data-zone="3"></div>
+                <div class="dropZone strings" data-zone="strings"></div>
+                <div class="dropZone keys" data-zone="keys"></div>
+                <div class="dropZone brass" data-zone="brass"></div>
             </div>
             <div class="dropZone dragItemWrapper">
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="1">1</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="2">2</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="3">3</div>
-                <div class="dragItem" draggable="true" data-pair="nonGroup">NG</div>
+                <div class="dragItem harp" draggable="true" data-pair="strings"></div>
+                <div class="dragItem gusli" draggable="true" data-pair="strings"></div>
+                <div class="dragItem guitar" draggable="true" data-pair="strings"></div>
+                <div class="dragItem synthesizer" draggable="true" data-pair="keys"></div>
+                <div class="dragItem accordion" draggable="true" data-pair="keys"></div>
+                <div class="dragItem piano" draggable="true" data-pair="keys"></div>
+                <div class="dragItem flute" draggable="true" data-pair="brass"></div>
+                <div class="dragItem trumpet" draggable="true" data-pair="brass"></div>
+                <div class="dragItem bagpipes" draggable="true" data-pair="brass"></div>
+                <div class="dragItem drum" draggable="true" data-pair="nonGroup"></div>
             </div>
             <div class="dropZone nonGroup" data-zone="nonGroup"></div>
         </section>
@@ -72,6 +73,6 @@
         </section>
 
         <section class="js-modal-overlay modalOverlay hidden"></section>
-        <script src="script.js"></script>
+        <script src="./scripts/script.js"></script>
     </body>
 </html>
