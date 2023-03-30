@@ -8,7 +8,7 @@ const modalOverlay = document.querySelector('.js-modal-overlay')
 const levelPassedModal = document.querySelector('.js-modal-window-level-passed')
 const levelPassedButton = document.querySelector('.js-open-modal-window-level-passed')
 
-let dropZoneGroup = ''
+let dropZoneGroup = null
 
 let draggedItem = null
 let droppedItem = null
@@ -18,7 +18,6 @@ const levelNumber = window.location.pathname.slice(-6, -5)
 dragItems.forEach((dragItem) => {
     dragItem.addEventListener('dragstart', handleDragstart)
     dragItem.addEventListener('dragend', handleDragend)
-    dragItem.addEventListener('drag', handleDrag)
 
     dragItem.addEventListener('dragenter', () => {
         if (draggedItem !== droppedItem) {
@@ -39,7 +38,6 @@ dropZones.forEach((dropZone) => {
 })
 
 function handleDragstart() {
-    this.classList.add('dragItem--active')
     draggedItem = this
 }
 
@@ -50,7 +48,6 @@ function handleDragend() {
         this.setAttribute('draggable', 'false')
     }
 
-    this.classList.remove('dragItem--active')
     draggedItem = null
 
     const nonDraggableItems = document.querySelectorAll('[draggable="false"]')
@@ -60,9 +57,6 @@ function handleDragend() {
         playSound()
         showLevelPassedButton()
     }
-}
-
-function handleDrag(event) {
 }
 
 function handleDragenter(event) {
