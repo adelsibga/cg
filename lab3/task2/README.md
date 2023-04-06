@@ -1,25 +1,3 @@
-# Webpack ts starter
-
-Starter for development typescript application with webpack. [Russian](./docs/ru.md)
-
-**NOTE: Use Nx [WEB](https://nx.dev/web/overview) instead of webpack-ts-starter.** Read more on [habr](https://habr.com/ru/post/652453/).
-
-## Clone starter
-
-To get started, you should run command:
-
-```shell script
-git clone git@github.com:Fafnur/webpack-ts-starter.git project
-```
-
-## Install dependencies
-
-After clone project, you should install dependencies:
-
-```shell script
-yarn install
-```
-
 ## Development
 
 For development, you can use the command that runs webpack dev server:
