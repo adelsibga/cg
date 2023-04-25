@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Three.js Möbius Strip Visualization</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+<script>
+    let scene = new THREE.Scene()
+    scene.background = new THREE.Color(0xffffff)
+
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000)
+    camera.position.z = 5
+    scene.add(camera)
+
+    let renderer = new THREE.WebGLRenderer()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    document.body.appendChild(renderer.domElement)
+
+    let stripWidth = 2
+    let stripHeight = 2
+    let stripSegments = 28
+    let stripGeometry = new THREE.ParametricGeometry(function (u, v, out) {
+        let t = u * Math.PI * 2
+        let x = (stripWidth + v * Math.cos(t / 2)) * Math.cos(t)
+        let y = (stripWidth + v * Math.cos(t / 2)) * Math.sin(t)
+        let z = v * Math.sin(t / 2)
+
+        out.set(x, y, z)
+    }, stripSegments, stripSegments)
+
+    let stripMaterial = new THREE.LineBasicMaterial({
+        color: 'lightslategray'
+    })
+
+    let stripMesh = new THREE.LineSegments(stripGeometry, stripMaterial)
+    stripMesh.rotation.x = Math.PI / 2
+    scene.add(stripMesh)
+
+    let directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
+    directionalLight.position.set(1, 1, 1)
+    scene.add(directionalLight)
+
+    let controls = new THREE.OrbitControls(camera, renderer.domElement)
+
+    function animate() {
+        requestAnimationFrame(animate)
+        renderer.render(camera)
+        controls.update()
+    }
+
+    animate()
+</script>
+</body>
+</html>
