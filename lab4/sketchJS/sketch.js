@@ -19,7 +19,7 @@ const sketch = ({context}) => {
 
     const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100)
     camera.position.set(2, 2, 1)
-    camera.lookAt(0,0,0)
+    camera.lookAt(new THREE.Vector3())
 
     const controls = new THREE.OrbitControls(camera, context.canvas)
 
@@ -48,9 +48,12 @@ const sketch = ({context}) => {
             camera.aspect = viewportWidth / viewportHeight
             camera.updateProjectionMatrix()
         },
-        render() {
-            controls.update()
-            renderer.render(camera)
+        render({time, deltaTime}) {
+            mesh.rotation.y = time * (10 * Math.PI / 180)
+            renderer.render(scene, camera)
+        },
+        unload() {
+            renderer.dispose()
         }
     }
 }
