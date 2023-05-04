@@ -14,7 +14,11 @@ document.body.appendChild(renderer.domElement)
 const controls = new OrbitControls(camera, renderer.domElement)
 
 const geometry = new ParametricGeometry(ParametricGeometries.klein, 25, 25)
-const material = new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/uv_grid_opengl.jpg')})
+const material = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    wireframe: true
+})
+
 const klein = new THREE.Mesh(geometry, material)
 scene.add(klein)
 
