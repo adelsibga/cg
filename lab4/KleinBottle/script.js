@@ -4,7 +4,7 @@ import {ParametricGeometry} from 'https://cdn.skypack.dev/three@0.136.0/examples
 import {ParametricGeometries} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/ParametricGeometries'
 
 let scene = new THREE.Scene()
-let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000)
+let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000)
 camera.position.setScalar(10)
 
 let renderer = new THREE.WebGLRenderer()
