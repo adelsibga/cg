@@ -1,13 +1,12 @@
 const canvasSketch = require('canvas-sketch')
 
-global.THREE = require('three')
+THREE = require('three')
 
 require('three/examples/js/controls/OrbitControls')
 
 const settings = {
     animate: true,
     context: 'webgl',
-    attributes: {antialias: true}
 }
 
 const sketch = ({context}) => {
@@ -33,11 +32,11 @@ const sketch = ({context}) => {
         wireframe: true
     })
 
-    const mesh = new THREE.Mesh(
+    const torus = new THREE.Mesh(
         geometry,
         material
     )
-    scene.add(mesh)
+    scene.add(torus)
 
     return {
         resize({pixelRatio, viewportWidth, viewportHeight}) {
@@ -48,11 +47,8 @@ const sketch = ({context}) => {
         },
         render({time}) {
             controls.update()
-            mesh.rotation.y = time * (10 * Math.PI / 180)
+            torus.rotation.y = time * (10 * Math.PI / 180)
             renderer.render(scene, camera)
-        },
-        unload() {
-            renderer.dispose()
         }
     }
 }
