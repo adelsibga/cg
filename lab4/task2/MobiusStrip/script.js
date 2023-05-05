@@ -12,6 +12,7 @@ document.body.appendChild(renderer.domElement)
 const stripWidth = 2
 const stripHeight = 2
 const stripSegments = 64
+// TODO: correct the formula
 const stripGeometry = new THREE.ParametricGeometry(function (u, v, out) {
     const t = u * Math.PI * 2
     const x = (stripWidth + v * Math.cos(t / 2)) * Math.cos(t)
