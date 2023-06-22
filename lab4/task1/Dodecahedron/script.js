@@ -21,11 +21,30 @@ renderer.setSize(WIDTH, HEIGHT)
 document.body.appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
+controls.enableDamping = true
 
 const geometry = new THREE.DodecahedronGeometry(RADIUS, 0)
+
+const step = 2
+let colors = []
+for (let r = 0; r <= step; r++) {
+    for (let g = 0; g <= step; g++) {
+        for (let b = 0; b <= step; b++) {
+            colors.push([(r / step), (g / step), (b / step)])
+            colors.push([(r / step), (g / step), (b / step)])
+            colors.push([(r / step), (g / step), (b / step)])
+        }
+    }
+}
+const colorsFloat = new Float32Array(colors.flat())
+geometry.setAttribute('color', new THREE.BufferAttribute(colorsFloat, 3))
+
 const material = new THREE.MeshPhongMaterial({
-    color: '#f5f',
-    transparent: true, opacity: 0.6
+    // color: '#f5f', // debug color
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.5,
+    side: THREE.DoubleSide
 })
 
 const mesh = new THREE.Mesh(geometry, material)
@@ -33,15 +52,16 @@ scene.add(mesh)
 
 const materialWireframe = new THREE.MeshPhongMaterial({
     color: BLACK_COLOR,
-    wireframe: true
+    wireframe: true,
+    transparent: true
 })
 
 const meshColor = new THREE.Mesh(geometry, materialWireframe)
 scene.add(meshColor)
 
 const light = new THREE.DirectionalLight(WHITE_COLOR, 1)
-scene.add(light)
 light.position.set(3, 3, 3)
+scene.add(light)
 
 function animate() {
     requestAnimationFrame(animate)
