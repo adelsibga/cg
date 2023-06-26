@@ -1,6 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
 import {OrbitControls} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls'
-
+// TODO: Добавить огни от двигателя
 const WIDTH = window.innerWidth
 const HEIGHT = window.innerHeight
 const TEST_COLOR = 0xff55ff
