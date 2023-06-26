@@ -1,9 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
 import {OrbitControls} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls'
 
-// TODO: добавить цвет для фигуры
-// TODO: добавить ресайз окна и смешение фигуры
-
 const WIDTH = window.innerWidth
 const HEIGHT = window.innerHeight
 const RADIUS = 200
@@ -40,7 +37,6 @@ const colorsFloat = new Float32Array(colors.flat())
 geometry.setAttribute('color', new THREE.BufferAttribute(colorsFloat, 3))
 
 const material = new THREE.MeshPhongMaterial({
-    // color: '#f5f', // debug color
     vertexColors: true,
     transparent: true,
     opacity: 0.5,
