@@ -24,74 +24,65 @@ document.body.appendChild(renderer.domElement)
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enableDamping = true
 
-function createJet(r, len, x, y) {
-    function defaultVertexShader() {
-        return `
-            varying vec2 vUv;
-            varying vec3 vPos;  
-            void main() {
-              vUv = uv;  
-              vPos = position;
-              gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-            }
-        `
-    }
+function createJet(radius, length, x, y) {
+    const vertexShader = `
+        varying vec2 vUV;
+            
+        void main() {
+            vUV = uv;  
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    `
 
-    function mat(fragmentShader) {
+    function material(fragmentShader) {
         return new THREE.ShaderMaterial({
-            uniforms: {
-                time: {value: 0.0}
-            },
-            vertexShader: defaultVertexShader(),
+            vertexShader: vertexShader,
             fragmentShader,
             side: THREE.DoubleSide,
-            transparent: true,
             depthWrite: false,
             blending: THREE.AdditiveBlending
         })
     }
 
-    let material_1 = mat(`
-        varying vec2 vUv;
-        varying vec3 vPos;
-        uniform float time;
+    const starJetMaterial = material(`
+        varying vec2 vUV;
+        
         void main() {
-            vec2 uv = vUv;
+            vec2 uv = vUV;
             uv -= 0.5;
-            float a = atan(uv.y, uv.x)+0.72;
-            float c = 1. - length(uv)*(3. + sin(a*6. + sin(time)*0.2)*0.5 + 0.35*sin(time));
-            gl_FragColor = vec4(c*0.5,c*0.5,c*(0.75+0.25*sin(time)),c*c);
+            
+            float jetRadius = atan(uv.y, uv.x) + 0.72;
+            float color = 1.0 - length(uv) * (3.0 + sin(jetRadius * 6.0 + sin(0.0) * 0.2) * 0.5);
+            gl_FragColor = vec4(color * 0.5, color * 0.5, color * (0.75 + 0.25 * sin(0.0)), color * color);
         }
     `)
 
-    let JET_MATERIAL = mat(`
-        varying vec2 vUv;
-        varying vec3 vPos;
-        uniform float time;
+    let jetFlame = material(`
+        varying vec2 vUV;
+        
         void main() {
-            vec2 uv = vUv;
+            vec2 uv = vUV;
             uv.x -= 0.5;
-            float c = 1. - length(uv)*(3.5+0.25*cos(time));
-            gl_FragColor = vec4(c*0.5,c*0.5,c,c) ;
+            
+            float color = 1.0 - length(uv) * (3.5 + 0.25 * cos(0.0));
+            gl_FragColor = vec4(color * 0.5, color * 0.5, color, color) ;
         }
     `)
 
-    let light = new THREE.Object3D()
-    let rect = new THREE.PlaneGeometry(r, len, 1, 1)
-    let square = new THREE.PlaneGeometry(r * 1.3, r * 1.3, 1, 1)
+    const light = new THREE.Object3D()
+    const rect = new THREE.PlaneGeometry(radius, length, 1, 1)
+    const square = new THREE.PlaneGeometry(radius * 1.3, radius * 1.3, 1, 1)
 
-    let plane = new THREE.Mesh(square, material_1)
-    plane.rotation.x = Math.PI / 2
-    light.add(plane)
-    plane = new THREE.Mesh(square, material_1)
+    let plane = new THREE.Mesh(square, starJetMaterial)
     plane.rotation.x = Math.PI / 2
     plane.position.y = 0.01
     light.add(plane)
+
     let planesCount = 3
     for (let i = 0; i < planesCount; i++) {
-        plane = new THREE.Mesh(rect, JET_MATERIAL)
+        plane = new THREE.Mesh(rect, jetFlame)
         plane.rotation.y = i * Math.PI / planesCount
-        plane.position.y = len / 2
+        plane.position.y = length / 2
         light.add(plane)
     }
     light.position.x = x
@@ -138,9 +129,9 @@ function createShip() {
 
 function createSpace() {
     const SKY_DAY = './images/sky.jpg'
-    const SKY_MILKY_WAY = './images/space.jpg'
+    const SKY_NIGHT_WITH_STARS = './images/space.jpg'
 
-    return scene.background = loader.load(SKY_DAY)
+    return scene.background = loader.load(SKY_NIGHT_WITH_STARS)
 }
 
 scene.add(createShip())
