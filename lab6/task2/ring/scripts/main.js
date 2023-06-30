@@ -50,9 +50,9 @@ function animate() {
 animate()
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight
+    camera.aspect = WIDTH / HEIGHT
     camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(WIDTH, HEIGHT)
 }
 
 window.addEventListener('resize', onWindowResize, false)

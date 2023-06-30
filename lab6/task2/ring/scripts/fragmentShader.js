@@ -26,6 +26,6 @@ const fragmentShader = `
 
     void main() {
         gl_FragColor = vec4(1,1,1,1);
-        createRing(center, 50.0, 150.0);
+        createRing(center, 10.0, 50.0);
     }
 `
