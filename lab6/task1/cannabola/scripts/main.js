@@ -27,6 +27,11 @@ for (let x = 0; x < 2 * initialRange; x += finalRange) {
 geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
 
 const material = new THREE.ShaderMaterial({
+    uniforms: {
+        res: {
+            value: new THREE.Vector2(WIDTH, HEIGHT)
+        }
+    },
     vertexShader: vertexShader,
     fragmentShader: fragmentShader
 })

@@ -15,14 +15,14 @@ renderer.setClearColor(CLEAR_COLOR)
 document.body.appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true;
-controls.screenSpacePanning = false;
-controls.minDistance = 200;
-controls.maxDistance = 1000;
+controls.enableDamping = true
+controls.screenSpacePanning = false
+controls.minDistance = 200
+controls.maxDistance = 1000
 
 const center = {
     x: WIDTH / 2,
-    y: HEIGHT / 2,
+    y: HEIGHT / 2
 }
 const geometry = new THREE.PlaneGeometry(WIDTH / 2, HEIGHT / 2)
 const material = new THREE.ShaderMaterial({
@@ -50,9 +50,9 @@ function animate() {
 animate()
 
 function onWindowResize() {
-    camera.aspect = WIDTH / HEIGHT
+    camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
-    renderer.setSize(WIDTH, HEIGHT)
+    renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
 window.addEventListener('resize', onWindowResize, false)

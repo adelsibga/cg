@@ -22,10 +22,16 @@ const fragmentShader = `
         if ((x2 / pow2(innerRadiusX) + y2 / pow2(innerRadiusY) >= 3.0) && (x2 / pow2(outerRadiusX) + y2 / pow2(outerRadiusY) <= 3.0)) {
             gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
         }
+        
+        if ((x2 / pow2(innerRadiusX) + y2 / pow2(innerRadiusY)) <= 3.0) {
+            gl_FragColor = vec4(1, 1, 1, 1);
+        }
     }
 
     void main() {
-        gl_FragColor = vec4(1,1,1,1);
+        gl_FragColor = vec4(1,0,1,1);
+        
         createRing(center, 10.0, 50.0);
+        createRing(center + 200.0, 10.0, 50.0);
     }
 `
