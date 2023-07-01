@@ -1,13 +1,19 @@
+import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
+
 import {
     createArea,
     createCobblestone,
     createMossyCobblestone,
     createDoor,
     createWood,
+    createFloor,
     createGlass,
     createWoodStairs,
-    createCobblestoneStairs
+    createCobblestoneStairs,
+    createFlashlight,
+    createLamp
 } from './createElements.js'
+
 //TODO: сделать циклами вместо постоянного вызова функций
 function draw(scene) {
     drawArea(scene)
@@ -18,6 +24,8 @@ function draw(scene) {
     drawFloor(scene)
     drawStairs(scene)
     drawRoof(scene)
+    drawFlashlight(scene)
+    drawLamp(scene)
 }
 
 function drawArea(scene) {
@@ -399,7 +407,7 @@ function drawGlass(scene) {
         scene.add(glass)
         glass = createGlass(3, 3, i, true)
     }
-    
+
     // left side fourth layer
     for (let i = 3; i >= 2; i--) {
         glass = createGlass(-5, 3, i, true)
@@ -414,7 +422,7 @@ function drawFloor(scene) {
 
     for (let i = -4; i <= 2; i++) {
         for (let j = 1; j <= 4; j++) {
-            floor = createWood(i, 0, j)
+            floor = createFloor(i, 0, j)
             scene.add(floor)
         }
     }
@@ -435,49 +443,78 @@ function drawRoof(scene) {
         scene.add(stairs)
         stairs = createWoodStairs(i, 4.75, 6, true)
         scene.add(stairs)
-        
+
         // back side first layer stairs
         stairs = createWoodStairs(i, 5, -0.75)
         scene.add(stairs)
         stairs = createWoodStairs(i, 4.75, -1, true)
         scene.add(stairs)
-        
+
         // front side second layer stairs
         stairs = createWoodStairs(i, 6, 4.75)
         scene.add(stairs)
         stairs = createWoodStairs(i, 5.75, 5, true)
         scene.add(stairs)
-        
+
         // back side second layer stairs
         stairs = createWoodStairs(i, 6, 0.25)
         scene.add(stairs)
         stairs = createWoodStairs(i, 5.75, 0, true)
         scene.add(stairs)
-        
+
         // front side third layer stairs
         stairs = createWoodStairs(i, 7, 3.75)
         scene.add(stairs)
         stairs = createWoodStairs(i, 6.75, 4, true)
         scene.add(stairs)
-        
+
         // back side third layer stairs
         stairs = createWoodStairs(i, 7, 1.25)
         scene.add(stairs)
         stairs = createWoodStairs(i, 6.75, 1, true)
         scene.add(stairs)
-        
+
         // front side fourth layer stairs
         stairs = createWoodStairs(i, 8, 2.75)
         scene.add(stairs)
         stairs = createWoodStairs(i, 7.75, 3, true)
         scene.add(stairs)
-        
+
         // back side fourth layer stairs
         stairs = createWoodStairs(i, 8, 2.25)
         scene.add(stairs)
         stairs = createWoodStairs(i, 7.75, 2, true)
         scene.add(stairs)
     }
+}
+
+function drawFlashlight(scene) {
+    let flashLight = undefined
+
+    for (let i = 0; i <= 3; i++) {
+        flashLight = createFlashlight(0, i, -8)
+        scene.add(flashLight)
+    }
+}
+
+function drawLamp(scene) {
+    let lamp = createLamp(0, 4, -8)
+    scene.add(lamp)
+
+    const spotLight = new THREE.SpotLight(0xffffff, 0.5)
+    spotLight.position.set(0, 4, -8)
+    spotLight.distance = 30
+    spotLight.angle = Math.PI / 4
+
+    spotLight.castShadow = true
+
+    spotLight.shadow.mapSize.width = 1024
+    spotLight.shadow.mapSize.height = 1024
+
+    spotLight.shadow.camera.near = 500
+    spotLight.shadow.camera.far = 4000
+    spotLight.shadow.camera.fov = 30
+    scene.add(spotLight)
 }
 
 export {draw}

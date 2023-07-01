@@ -22,11 +22,20 @@ renderer.setSize(WIDTH, HEIGHT)
 document.body.appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
-// TODO: fix this
-const light = new THREE.DirectionalLight(0xffffff, 0.5);
-light.position.setScalar(10);
-scene.add(light);
-scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+const light = new THREE.DirectionalLight(0xffffff, 0.5)
+light.position.setScalar(10)
+scene.add(light)
+
+// scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+const box = new THREE.BoxGeometry(1, 1, 1)
+const material = new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('./images/blocks/gold.webp')
+})
+
+const lightBox = new THREE.Mesh(box, material)
+lightBox.position.setScalar(10)
+scene.add(lightBox)
 
 draw(scene)
 
@@ -40,9 +49,9 @@ function animate() {
 animate()
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight
+    camera.aspect = WIDTH / HEIGHT
     camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(WIDTH, HEIGHT)
 }
 
 window.addEventListener('resize', onWindowResize, false)

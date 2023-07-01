@@ -43,8 +43,15 @@ function createStairsGeometry(texture, offsetX, offsetY, offsetZ, isRotate) {
     return createObject(stairs, texture, offsetX, offsetY, offsetZ, false, false, false, false, true, isRotate)
 }
 
+function createFlashLightHull(texture, offsetX, offsetY, offsetZ) {
+    const box = new THREE.BoxGeometry(0.25, 1, 0.25)
+
+    return createObject(box, texture, offsetX, offsetY, offsetZ, false)
+}
+
 export {
     createBoxGeometry,
     createPlaneGeometry,
-    createStairsGeometry
+    createStairsGeometry,
+    createFlashLightHull
 }
