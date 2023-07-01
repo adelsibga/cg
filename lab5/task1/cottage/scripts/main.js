@@ -13,6 +13,22 @@ const DEBUG_COLOR = 0xff55ff
 const scene = new THREE.Scene()
 scene.background = loader.load(SKY_DAY)
 scene.fog = new THREE.FogExp2(FOG_COLOR, 0.1, 15)
+let fogIsOn = true
+
+window.addEventListener('keydown', (e) => {
+    if (e.code !== 'Escape') {
+        return
+    }
+
+    if (fogIsOn) {
+        scene.fog = new THREE.FogExp2(0, 0, 0)
+        fogIsOn = false
+    }
+    else {
+        scene.fog = new THREE.FogExp2(FOG_COLOR, 0.1, 15)
+        fogIsOn = true
+    }
+})
 
 const camera = new THREE.PerspectiveCamera(75, WIDTH / HEIGHT, 1, 1000)
 camera.position.set(0, 7, 15)
@@ -41,7 +57,7 @@ draw(scene)
 
 function animate() {
     requestAnimationFrame(animate)
-    scene.rotation.y += 0.004
+    // scene.rotation.y += 0.004
     renderer.render(scene, camera)
     controls.update()
 }
@@ -49,9 +65,9 @@ function animate() {
 animate()
 
 function onWindowResize() {
-    camera.aspect = WIDTH / HEIGHT
+    camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
-    renderer.setSize(WIDTH, HEIGHT)
+    renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
 window.addEventListener('resize', onWindowResize, false)
