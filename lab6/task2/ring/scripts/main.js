@@ -7,7 +7,7 @@ const CLEAR_COLOR = 0xffffff
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(100, WIDTH / HEIGHT, 1, 1000)
-camera.position.set(0, 0, 3)
+camera.position.set(0, 0, 500)
 
 const renderer = new THREE.WebGLRenderer()
 renderer.setSize(WIDTH, HEIGHT)
@@ -21,7 +21,7 @@ controls.minDistance = 200
 controls.maxDistance = 1000
 
 const center = {
-    x: WIDTH / 2,
+    x: WIDTH / 1.3,
     y: HEIGHT / 2
 }
 

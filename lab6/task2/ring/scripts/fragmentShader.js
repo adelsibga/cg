@@ -33,7 +33,7 @@ const fragmentShader = `
     void main() {
         gl_FragColor = vec4(1,0,1,1);
         
-        createRing(center, 10.0, 50.0);
-        createRing(centerSecond + 440.0, 10.0, 50.0);
+        createRing(center, 20.0, 150.0);
+        createRing(centerSecond + 440.0, 20.0, 150.0);
     }
 `
