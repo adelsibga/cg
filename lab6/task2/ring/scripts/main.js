@@ -24,6 +24,12 @@ const center = {
     x: WIDTH / 2,
     y: HEIGHT / 2
 }
+
+const centerSecond = {
+    x: WIDTH / 2,
+    y: HEIGHT / 2
+}
+
 const geometry = new THREE.PlaneGeometry(WIDTH / 2, HEIGHT / 2)
 const material = new THREE.ShaderMaterial({
     uniforms: {
@@ -32,6 +38,9 @@ const material = new THREE.ShaderMaterial({
         },
         center: {
             value: center
+        },
+        offset: {
+            value: centerSecond
         }
     },
     vertexShader: vertexShader,
