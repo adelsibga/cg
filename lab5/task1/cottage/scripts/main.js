@@ -57,7 +57,7 @@ draw(scene)
 
 function animate() {
     requestAnimationFrame(animate)
-    // scene.rotation.y += 0.004
+    scene.rotation.y += 0.004
     renderer.render(scene, camera)
     controls.update()
 }

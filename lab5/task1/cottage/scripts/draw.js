@@ -14,7 +14,6 @@ import {
     createLamp
 } from './createElements.js'
 
-//TODO: сделать циклами вместо постоянного вызова функций
 function draw(scene) {
     drawArea(scene)
     drawCobblestone(scene)
@@ -37,22 +36,23 @@ function drawCobblestone(scene) {
     // front side first layer
     let cobblestone = createMossyCobblestone(-5, 0, 5)
     scene.add(cobblestone)
-    cobblestone = createCobblestone(-4, 0, 5)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-3, 0, 5)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-2, 0, 5)
-    scene.add(cobblestone)
+
+    for (let i = -4; i <= -2; i++) {
+        cobblestone = createCobblestone(i, 0, 5)
+        scene.add(cobblestone)
+    }
+
     cobblestone = createMossyCobblestone(-1, 0, 5)
     scene.add(cobblestone)
-    cobblestone = createCobblestone(0, 0, 5)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(1, 0, 5)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(2, 0, 5)
-    scene.add(cobblestone)
+
+    for (let i = 0; i <= 2; i++) {
+        cobblestone = createCobblestone(i, 0, 5)
+        scene.add(cobblestone)
+    }
+
     cobblestone = createMossyCobblestone(3, 0, 5)
     scene.add(cobblestone)
+
     // right side first layer
     cobblestone = createMossyCobblestone(3, 0, 4)
     scene.add(cobblestone)
@@ -62,16 +62,12 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 0, 1)
     scene.add(cobblestone)
+
     // back side first layer
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 0, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-4, 0, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-3, 0, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-2, 0, 0)
-    scene.add(cobblestone)
+    for (let i = -5; i <= -2; i++) {
+        cobblestone = createCobblestone(i, 0, 0)
+        scene.add(cobblestone)
+    }
     cobblestone = createMossyCobblestone(-1, 0, 0)
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(0, 0, 0)
@@ -82,6 +78,7 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 0, 0)
     scene.add(cobblestone)
+
     // left side first layer
     cobblestone = createCobblestone(-5, 0, 4)
     scene.add(cobblestone)
@@ -91,6 +88,7 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createCobblestone(-5, 0, 1)
     scene.add(cobblestone)
+
     // front side second layer
     cobblestone = createCobblestone(-5, 1, 5)
     scene.add(cobblestone)
@@ -108,6 +106,7 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 1, 5)
     scene.add(cobblestone)
+
     // right side second layer
     cobblestone = createCobblestone(3, 1, 4)
     scene.add(cobblestone)
@@ -119,18 +118,15 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 1, 0)
     scene.add(cobblestone)
+
     // back side second layer
-    scene.add(cobblestone)
     cobblestone = createMossyCobblestone(-5, 1, 0)
     scene.add(cobblestone)
-    cobblestone = createCobblestone(-4, 1, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-3, 1, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-2, 1, 0)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-1, 1, 0)
-    scene.add(cobblestone)
+
+    for (let i = -4; i <= 0; i++) {
+        cobblestone = createCobblestone(i, 1, 0)
+        scene.add(cobblestone)
+    }
     cobblestone = createCobblestone(0, 1, 0)
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(1, 1, 0)
@@ -139,6 +135,7 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 1, 0)
     scene.add(cobblestone)
+
     // left side second layer
     cobblestone = createCobblestone(-5, 1, 4)
     scene.add(cobblestone)
@@ -148,87 +145,82 @@ function drawCobblestone(scene) {
     scene.add(cobblestone)
     cobblestone = createCobblestone(-5, 1, 1)
     scene.add(cobblestone)
+
     // front side third layer
     cobblestone = createCobblestone(-5, 2, 5)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 2, 5)
     scene.add(cobblestone)
+
     // back side third layer
     cobblestone = createMossyCobblestone(-5, 2, 0)
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 2, 0)
     scene.add(cobblestone)
+
     // front side fourth layer
     cobblestone = createCobblestone(-5, 3, 5)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 3, 5)
     scene.add(cobblestone)
+
     // back side fourth layer
     cobblestone = createMossyCobblestone(-5, 3, 0)
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 3, 0)
     scene.add(cobblestone)
+
     // front side fifth layer
     cobblestone = createCobblestone(-5, 4, 5)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 4, 5)
     scene.add(cobblestone)
+
     // back side fifth layer
     cobblestone = createCobblestone(-5, 4, 0)
     scene.add(cobblestone)
     cobblestone = createMossyCobblestone(3, 4, 0)
     scene.add(cobblestone)
+
     // front side sixth layer
     cobblestone = createCobblestone(-5, 5, 5)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 5, 5)
     scene.add(cobblestone)
+
     // right side sixth layer
-    cobblestone = createCobblestone(3, 5, 4)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 5, 3)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 5, 2)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 5, 1)
-    scene.add(cobblestone)
+    for (let i = 4; i >= 1; i--) {
+        cobblestone = createCobblestone(3, 5, i)
+        scene.add(cobblestone)
+    }
+
     // back side sixth layer
     cobblestone = createCobblestone(-5, 5, 0)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 5, 0)
     scene.add(cobblestone)
+
     // left side sixth layer
-    cobblestone = createCobblestone(-5, 5, 4)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 5, 3)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 5, 2)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 5, 1)
-    scene.add(cobblestone)
+    for (let i = 4; i >= 1; i--) {
+        cobblestone = createCobblestone(-5, 5, i)
+        scene.add(cobblestone)
+    }
     // right side seventh layer
-    cobblestone = createCobblestone(3, 6, 4)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 6, 3)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 6, 2)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(3, 6, 1)
-    scene.add(cobblestone)
+    for (let i = 4; i >= 1; i--) {
+        cobblestone = createCobblestone(3, 6, i)
+        scene.add(cobblestone)
+    }
     // left side seventh layer
-    cobblestone = createCobblestone(-5, 6, 4)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 6, 3)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 6, 2)
-    scene.add(cobblestone)
-    cobblestone = createCobblestone(-5, 6, 1)
-    scene.add(cobblestone)
+    for (let i = 4; i >= 1; i--) {
+        cobblestone = createCobblestone(-5, 6, i)
+        scene.add(cobblestone)
+    }
     // right side eight layer
     cobblestone = createCobblestone(3, 7, 3)
     scene.add(cobblestone)
     cobblestone = createCobblestone(3, 7, 2)
     scene.add(cobblestone)
+
     // left side eight layer
     cobblestone = createCobblestone(-5, 7, 3)
     scene.add(cobblestone)
@@ -249,11 +241,13 @@ function drawWood(scene) {
     scene.add(wood)
     wood = createWood(1, 2, 5)
     scene.add(wood)
+
     // right side third layer
     wood = createWood(3, 2, 4)
     scene.add(wood)
     wood = createWood(3, 2, 1)
     scene.add(wood)
+
     // back side third layer
     wood = createWood(2, 2, 0)
     scene.add(wood)
@@ -261,93 +255,62 @@ function drawWood(scene) {
     scene.add(wood)
     wood = createWood(-4, 2, 0)
     scene.add(wood)
+
     // left side third layer
     wood = createWood(-5, 2, 4)
     scene.add(wood)
     wood = createWood(-5, 2, 1)
     scene.add(wood)
+
     // front side fourth layer
     wood = createWood(-4, 3, 5)
     scene.add(wood)
-    wood = createWood(0, 3, 5)
-    scene.add(wood)
-    wood = createWood(1, 3, 5)
-    scene.add(wood)
-    wood = createWood(2, 3, 5)
-    scene.add(wood)
+    for (let i = 0; i <= 2; i++) {
+        wood = createWood(i, 3, 5)
+        scene.add(wood)
+    }
+
     // right side fourth layer
     wood = createWood(3, 3, 4)
     scene.add(wood)
     wood = createWood(3, 3, 1)
     scene.add(wood)
+
     // back side fourth layer
-    wood = createWood(2, 3, 0)
-    scene.add(wood)
-    wood = createWood(1, 3, 0)
-    scene.add(wood)
-    wood = createWood(0, 3, 0)
-    scene.add(wood)
-    wood = createWood(-1, 3, 0)
-    scene.add(wood)
-    wood = createWood(-2, 3, 0)
-    scene.add(wood)
-    wood = createWood(-3, 3, 0)
-    scene.add(wood)
-    wood = createWood(-4, 3, 0)
-    scene.add(wood)
+    for (let i = 2; i >= -4; i--) {
+        wood = createWood(i, 3, 0)
+        scene.add(wood)
+    }
+
     // left side fourth layer
     wood = createWood(-5, 3, 4)
     scene.add(wood)
     wood = createWood(-5, 3, 1)
     scene.add(wood)
+
     // front side fifth layer
-    wood = createWood(-4, 4, 5)
-    scene.add(wood)
-    wood = createWood(-3, 4, 5)
-    scene.add(wood)
-    wood = createWood(-2, 4, 5)
-    scene.add(wood)
-    wood = createWood(-1, 4, 5)
-    scene.add(wood)
-    wood = createWood(0, 4, 5)
-    scene.add(wood)
-    wood = createWood(1, 4, 5)
-    scene.add(wood)
-    wood = createWood(2, 4, 5)
-    scene.add(wood)
+    for (let i = -4; i <= 2; i++) {
+        wood = createWood(i, 4, 5)
+        scene.add(wood)
+    }
+
     // right side fifth layer
-    wood = createWood(3, 4, 4)
-    scene.add(wood)
-    wood = createWood(3, 4, 3)
-    scene.add(wood)
-    wood = createWood(3, 4, 2)
-    scene.add(wood)
-    wood = createWood(3, 4, 1)
-    scene.add(wood)
+    for (let i = 4; i >= 1; i--) {
+        wood = createWood(3, 4, i)
+        scene.add(wood)
+    }
+
     // back side fifth layer
-    wood = createWood(2, 4, 0)
-    scene.add(wood)
-    wood = createWood(1, 4, 0)
-    scene.add(wood)
-    wood = createWood(0, 4, 0)
-    scene.add(wood)
-    wood = createWood(-1, 4, 0)
-    scene.add(wood)
-    wood = createWood(-2, 4, 0)
-    scene.add(wood)
-    wood = createWood(-3, 4, 0)
-    scene.add(wood)
-    wood = createWood(-4, 4, 0)
-    scene.add(wood)
+    for (let i = 2; i >= -4; i--) {
+        wood = createWood(i, 4, 0)
+        scene.add(wood)
+    }
+
     // left side fifth layer
-    wood = createWood(-5, 4, 4)
-    scene.add(wood)
-    wood = createWood(-5, 4, 3)
-    scene.add(wood)
-    wood = createWood(-5, 4, 2)
-    scene.add(wood)
-    wood = createWood(-5, 4, 1)
-    scene.add(wood)
+    for (let i = 4; i >= 1; i--) {
+        wood = createWood(-5, 4, i)
+        scene.add(wood)
+    }
 }
 
 function drawGlass(scene) {
@@ -357,16 +320,10 @@ function drawGlass(scene) {
     for (let i = -3; i <= -1; i++) {
         glass = createGlass(i, 2, 5)
         scene.add(glass)
-        glass = createGlass(i, 2, 5)
-        scene.add(glass)
-        glass = createGlass(i, 2, 5)
-        scene.add(glass)
     }
 
     // right side third layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(3, 2, i, true)
-        scene.add(glass)
         glass = createGlass(3, 2, i, true)
         scene.add(glass)
     }
@@ -375,28 +332,16 @@ function drawGlass(scene) {
     for (let i = 1; i >= -3; i--) {
         glass = createGlass(i, 2, 0)
         scene.add(glass)
-        glass = createGlass(i, 2, 0)
-        scene.add(glass)
-        glass = createGlass(i, 2, 0)
-        scene.add(glass)
-        glass = createGlass(i, 2, 0)
-        scene.add(glass)
     }
 
     // left side third layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(-5, 2, 3, true)
-        scene.add(glass)
-        glass = createGlass(-5, 2, 2, true)
+        glass = createGlass(-5, 2, i, true)
         scene.add(glass)
     }
 
     // front side fourth layer
     for (let i = -3; i <= -1; i++) {
-        glass = createGlass(i, 3, 5)
-        scene.add(glass)
-        glass = createGlass(i, 3, 5)
-        scene.add(glass)
         glass = createGlass(i, 3, 5)
         scene.add(glass)
     }
@@ -405,13 +350,10 @@ function drawGlass(scene) {
     for (let i = 3; i >= 2; i--) {
         glass = createGlass(3, 3, i, true)
         scene.add(glass)
-        glass = createGlass(3, 3, i, true)
     }
 
     // left side fourth layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(-5, 3, i, true)
-        scene.add(glass)
         glass = createGlass(-5, 3, i, true)
         scene.add(glass)
     }
