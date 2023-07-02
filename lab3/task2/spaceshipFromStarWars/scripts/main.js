@@ -1,8 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
 import {OrbitControls} from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls'
 
-// TODO: реакторинг шейдеров на наличие бессмысленных вычислений
-
 const WIDTH = window.innerWidth
 const HEIGHT = window.innerHeight
 const TEST_COLOR = 0xff55ff
@@ -55,7 +53,7 @@ function createJet(radius, length, x, y) {
             
             float jetRadius = atan(uv.y, uv.x) + 0.72;
             float color = 1.0 - length(uv) * (3.0 + sin(jetRadius * 6.0) * 0.5);
-            gl_FragColor = vec4(color * 0.5, color * 0.5, color * (0.75 + 0.25 * sin(0.0)), color * color);
+            gl_FragColor = vec4(color * 0.5, color * 0.5, color * 0.75, color * color);
         }
     `)
 
@@ -66,7 +64,7 @@ function createJet(radius, length, x, y) {
             vec2 uv = vUV;
             uv.x -= 0.5;
             
-            float color = 1.0 - length(uv) * (3.5 + 0.25 * cos(0.0));
+            float color = 1.0 - length(uv) * 3.5;
             gl_FragColor = vec4(color * 0.5, color * 0.5, color, color) ;
         }
     `)
