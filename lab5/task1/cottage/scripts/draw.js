@@ -388,49 +388,49 @@ function drawRoof(scene) {
         // front side first layer stairs
         stairs = createWoodStairs(i, 5, 5.75)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 4.75, 6, true)
+        stairs = createWoodStairs(i, 4.75, 6, 'x')
         scene.add(stairs)
 
         // back side first layer stairs
         stairs = createWoodStairs(i, 5, -0.75)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 4.75, -1, true)
+        stairs = createWoodStairs(i, 4.75, -1, 'x')
         scene.add(stairs)
 
         // front side second layer stairs
         stairs = createWoodStairs(i, 6, 4.75)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 5.75, 5, true)
+        stairs = createWoodStairs(i, 5.75, 5, 'x')
         scene.add(stairs)
 
         // back side second layer stairs
         stairs = createWoodStairs(i, 6, 0.25)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 5.75, 0, true)
+        stairs = createWoodStairs(i, 5.75, 0, 'x')
         scene.add(stairs)
 
         // front side third layer stairs
         stairs = createWoodStairs(i, 7, 3.75)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 6.75, 4, true)
+        stairs = createWoodStairs(i, 6.75, 4, 'x')
         scene.add(stairs)
 
         // back side third layer stairs
         stairs = createWoodStairs(i, 7, 1.25)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 6.75, 1, true)
+        stairs = createWoodStairs(i, 6.75, 1, 'x')
         scene.add(stairs)
 
         // front side fourth layer stairs
         stairs = createWoodStairs(i, 8, 2.75)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 7.75, 3, true)
+        stairs = createWoodStairs(i, 7.75, 3, 'x')
         scene.add(stairs)
 
         // back side fourth layer stairs
         stairs = createWoodStairs(i, 8, 2.25)
         scene.add(stairs)
-        stairs = createWoodStairs(i, 7.75, 2, true)
+        stairs = createWoodStairs(i, 7.75, 2, 'x')
         scene.add(stairs)
     }
 }

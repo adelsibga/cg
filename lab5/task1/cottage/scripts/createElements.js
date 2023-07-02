@@ -42,8 +42,8 @@ function createGlass(offsetX, offsetY, offsetZ, rotateAxis) {
     return createPlaneGeometry(1, 1, GLASS, offsetX, offsetY, offsetZ, true, rotateAxis)
 }
 
-function createWoodStairs(offsetX, offsetY, offsetZ, isRotate) {
-    return createStairsGeometry(WOOD, offsetX, offsetY, offsetZ, isRotate)
+function createWoodStairs(offsetX, offsetY, offsetZ, rotateAxis) {
+    return createStairsGeometry(WOOD, offsetX, offsetY, offsetZ, rotateAxis)
 }
 
 function createCobblestoneStairs(offsetX, offsetY, offsetZ, isRotate) {

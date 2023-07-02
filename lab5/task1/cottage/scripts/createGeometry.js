@@ -1,18 +1,6 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
 import {rotateAroundObjectAxis} from './helpers.js'
 
-function createBoxGeometry(texture, offsetX, offsetY, offsetZ, transparent) {
-    const box = new THREE.BoxGeometry(1, 1, 1)
-
-    return createObject(box, texture, offsetX, offsetY, offsetZ, transparent)
-}
-
-function createPlaneGeometry(widthX, widthY, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians) {
-    const plane = new THREE.PlaneGeometry(widthX, widthY)
-
-    return createObject(plane, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians)
-}
-
 function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians) {
     const material = new THREE.MeshPhongMaterial({
         side: THREE.DoubleSide,
@@ -42,9 +30,21 @@ function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent,
     return object
 }
 
-function createStairsGeometry(texture, offsetX, offsetY, offsetZ, isRotate) {
+function createBoxGeometry(texture, offsetX, offsetY, offsetZ, transparent) {
+    const box = new THREE.BoxGeometry(1, 1, 1)
+
+    return createObject(box, texture, offsetX, offsetY, offsetZ, transparent)
+}
+
+function createPlaneGeometry(widthX, widthY, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians) {
+    const plane = new THREE.PlaneGeometry(widthX, widthY)
+
+    return createObject(plane, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians)
+}
+
+function createStairsGeometry(texture, offsetX, offsetY, offsetZ, rotateAxis) {
     const stairs = new THREE.BoxGeometry(1, 1, 0.5)
-    return createObject(stairs, texture, offsetX, offsetY, offsetZ, false, false, false, false, true, isRotate)
+    return createObject(stairs, texture, offsetX, offsetY, offsetZ, false, rotateAxis)
 }
 
 function createFlashLightHull(texture, offsetX, offsetY, offsetZ) {
