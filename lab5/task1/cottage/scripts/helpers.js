@@ -1,13 +1,13 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.136.0'
 
-const rotateAroundObjectAxis = function (object, axis, radians) {
+const rotateAroundObjectAxis = function (object, axis, radians = Math.PI / 2) {
     const rotObjectMatrix = new THREE.Matrix4()
     rotObjectMatrix.makeRotationAxis(axis.normalize(), radians)
     object.matrix.multiply(rotObjectMatrix)
     object.rotation.setFromRotationMatrix(object.matrix)
 }
 
-const rotateAroundWorldAxis = function (object, axis, radians) {
+const rotateAroundWorldAxis = function (object, axis, radians = Math.PI / 2) {
     const rotWorldMatrix = new THREE.Matrix4()
     rotWorldMatrix.makeRotationAxis(axis.normalize(), radians)
 

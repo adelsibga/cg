@@ -329,7 +329,12 @@ function drawGlass(scene) {
     }
 
     // back side third layer
-    for (let i = 1; i >= -3; i--) {
+    for (let i = 1; i >= 0; i--) {
+        glass = createGlass(i, 2, 0)
+        scene.add(glass)
+    }
+
+    for (let i = -2; i >= -3; i--) {
         glass = createGlass(i, 2, 0)
         scene.add(glass)
     }

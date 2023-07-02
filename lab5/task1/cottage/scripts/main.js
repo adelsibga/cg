@@ -7,6 +7,7 @@ const HEIGHT = window.innerHeight
 const loader = new THREE.TextureLoader()
 
 const FOG_COLOR = 0xcccccc
+const SUN_COLOR = 0xf2cb24
 const SKY_DAY = './images/anotherTexture/sky.jpg'
 const DEBUG_COLOR = 0xff55ff
 

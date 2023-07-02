@@ -24,16 +24,31 @@ function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent,
     object.position.x = offsetX
     object.position.y = offsetY
     object.position.z = offsetZ
-    // TODO: организовать switch case
+    // TODO: организовать switch case и заменить кучу параметров на параметры с дефолтным значением
     if (isArea) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0), Math.PI / 2)
+        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0))
     }
     else if (isGlass && isRotateY) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0), Math.PI / 2)
+        rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0))
     }
     else if (isStairs && isRotateX) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0), Math.PI / 2)
+        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0))
     }
+
+    // switch (rotateAxis) {
+    //     case 'x':
+    //         rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0), radians)
+    //         break
+    //     case 'y':
+    //         rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0), radians)
+    //         break
+    //     case 'z':
+    //         rotateAroundObjectAxis(object, new THREE.Vector3(0, 0, 1), radians)
+    //         break
+    //     default:
+    //         console.log(`Wrong rotateAxis value! ${rotateAxis}`)
+    //         break
+    // }
 
     return object
 }
