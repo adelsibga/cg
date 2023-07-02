@@ -15,7 +15,7 @@ const GLASS = './images/planes/glass.png'
 const LAMP = './images/blocks/gold.webp'
 
 function createArea(widthX, widthY) {
-    return createPlaneGeometry(widthX, widthY, GRASS, 0, -0.51, 0, false, true)
+    return createPlaneGeometry(widthX, widthY, GRASS, 0, -0.51, 0, false, 'x')
 }
 
 function createCobblestone(offsetX, offsetY, offsetZ) {
@@ -27,7 +27,7 @@ function createMossyCobblestone(offsetX, offsetY, offsetZ) {
 }
 
 function createDoor(offsetX, offsetY, offsetZ) {
-    return createPlaneGeometry(1, 2, DOOR, offsetX, offsetY, offsetZ, true, false)
+    return createPlaneGeometry(1, 2, DOOR, offsetX, offsetY, offsetZ, true)
 }
 
 function createWood(offsetX, offsetY, offsetZ) {
@@ -38,8 +38,8 @@ function createFloor(offsetX, offsetY, offsetZ) {
     return createBoxGeometry(FLOOR, offsetX, offsetY, offsetZ, false)
 }
 
-function createGlass(offsetX, offsetY, offsetZ, isRotateY) {
-    return createPlaneGeometry(1, 1, GLASS, offsetX, offsetY, offsetZ, true, false, true, isRotateY)
+function createGlass(offsetX, offsetY, offsetZ, rotateAxis) {
+    return createPlaneGeometry(1, 1, GLASS, offsetX, offsetY, offsetZ, true, rotateAxis)
 }
 
 function createWoodStairs(offsetX, offsetY, offsetZ, isRotate) {

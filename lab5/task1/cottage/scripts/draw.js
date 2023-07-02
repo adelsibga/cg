@@ -324,7 +324,7 @@ function drawGlass(scene) {
 
     // right side third layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(3, 2, i, true)
+        glass = createGlass(3, 2, i, 'y')
         scene.add(glass)
     }
 
@@ -341,7 +341,7 @@ function drawGlass(scene) {
 
     // left side third layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(-5, 2, i, true)
+        glass = createGlass(-5, 2, i, 'y')
         scene.add(glass)
     }
 
@@ -353,13 +353,13 @@ function drawGlass(scene) {
 
     // right side fourth layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(3, 3, i, true)
+        glass = createGlass(3, 3, i, 'y')
         scene.add(glass)
     }
 
     // left side fourth layer
     for (let i = 3; i >= 2; i--) {
-        glass = createGlass(-5, 3, i, true)
+        glass = createGlass(-5, 3, i, 'y')
         scene.add(glass)
     }
 }

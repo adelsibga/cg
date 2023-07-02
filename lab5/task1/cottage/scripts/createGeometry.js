@@ -7,13 +7,13 @@ function createBoxGeometry(texture, offsetX, offsetY, offsetZ, transparent) {
     return createObject(box, texture, offsetX, offsetY, offsetZ, transparent)
 }
 
-function createPlaneGeometry(widthX, widthY, texture, offsetX, offsetY, offsetZ, transparent, isArea, isGlass, isRotateY) {
+function createPlaneGeometry(widthX, widthY, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians) {
     const plane = new THREE.PlaneGeometry(widthX, widthY)
 
-    return createObject(plane, texture, offsetX, offsetY, offsetZ, transparent, isArea, isGlass, isRotateY)
+    return createObject(plane, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians)
 }
 
-function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent, isArea, isGlass, isRotateY, isStairs, isRotateX) {
+function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent, rotateAxis, radians) {
     const material = new THREE.MeshPhongMaterial({
         side: THREE.DoubleSide,
         map: new THREE.TextureLoader().load(texture),
@@ -24,31 +24,20 @@ function createObject(geometry, texture, offsetX, offsetY, offsetZ, transparent,
     object.position.x = offsetX
     object.position.y = offsetY
     object.position.z = offsetZ
-    // TODO: организовать switch case и заменить кучу параметров на параметры с дефолтным значением
-    if (isArea) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0))
-    }
-    else if (isGlass && isRotateY) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0))
-    }
-    else if (isStairs && isRotateX) {
-        rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0))
-    }
 
-    // switch (rotateAxis) {
-    //     case 'x':
-    //         rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0), radians)
-    //         break
-    //     case 'y':
-    //         rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0), radians)
-    //         break
-    //     case 'z':
-    //         rotateAroundObjectAxis(object, new THREE.Vector3(0, 0, 1), radians)
-    //         break
-    //     default:
-    //         console.log(`Wrong rotateAxis value! ${rotateAxis}`)
-    //         break
-    // }
+    switch (rotateAxis) {
+        case 'x':
+            rotateAroundObjectAxis(object, new THREE.Vector3(1, 0, 0), radians)
+            break
+        case 'y':
+            rotateAroundObjectAxis(object, new THREE.Vector3(0, 1, 0), radians)
+            break
+        case 'z':
+            rotateAroundObjectAxis(object, new THREE.Vector3(0, 0, 1), radians)
+            break
+        default:
+            break
+    }
 
     return object
 }
