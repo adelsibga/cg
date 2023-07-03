@@ -46,8 +46,8 @@ function createWoodStairs(offsetX, offsetY, offsetZ, rotateAxis) {
     return createStairsGeometry(WOOD, offsetX, offsetY, offsetZ, rotateAxis)
 }
 
-function createCobblestoneStairs(offsetX, offsetY, offsetZ, isRotate) {
-    return createStairsGeometry(COBBLESTONE, offsetX, offsetY, offsetZ, isRotate)
+function createCobblestoneStairs(offsetX, offsetY, offsetZ, rotateAxis) {
+    return createStairsGeometry(COBBLESTONE, offsetX, offsetY, offsetZ, rotateAxis)
 }
 
 function createFlashlight(offsetX, offsetY, offsetZ) {

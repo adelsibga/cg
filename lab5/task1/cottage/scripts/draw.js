@@ -378,7 +378,7 @@ function drawFloor(scene) {
 function drawStairs(scene) {
     let stairs = createCobblestoneStairs(2, 0, 5.75)
     scene.add(stairs)
-    stairs = createCobblestoneStairs(2, -0.25, 6, true)
+    stairs = createCobblestoneStairs(2, -0.25, 6, 'x')
     scene.add(stairs)
 }
 
