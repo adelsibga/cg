@@ -1,1 +1,0 @@
-[Cottage](https://adelsibga.github.io/)
