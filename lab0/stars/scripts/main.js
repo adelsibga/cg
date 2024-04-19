@@ -26,7 +26,7 @@ function starGeometry(n) {
     }
 
     vertices.push(vertices[0], vertices[1], 0)
-    geometry.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
 
     return geometry
 }
