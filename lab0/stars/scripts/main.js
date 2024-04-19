@@ -8,30 +8,29 @@ let renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-function starGeometry(n) {
+function starGeometry(n, innerRadius, outerRadius) {
     n *= 2
-
-    const geometry = new THREE.BufferGeometry()
-    const vertices = []
-    const smallRadius = 0.5
+    const shape = new THREE.Shape()
 
     for (let i = 0; i < n; i++) {
-        const angle = (i / n) * Math.PI * 2
-        const radius = i % 2 === 0 ? 1 : smallRadius
+        const angle = Math.PI * 2 / n * i
+        const radius = i % 2 === 0 ? outerRadius : innerRadius
 
         const x = Math.cos(angle) * radius
         const y = Math.sin(angle) * radius
 
-        vertices.push(x, y, 0)
+        if (i === 0) {
+            shape.moveTo(x, y)
+        }
+        else {
+            shape.lineTo(x, y)
+        }
     }
 
-    vertices.push(vertices[0], vertices[1], 0)
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
-
-    return geometry
+    return new THREE.ShapeGeometry(shape)
 }
 
-const material = new THREE.LineBasicMaterial({
+const innerMaterial = new THREE.MeshBasicMaterial({
     color: 0xff55ff
 })
 
@@ -46,21 +45,24 @@ const leftX = -1.5,
     bottomY = -topY,
     commonY = 3
 
-const star = new THREE.Line(starGeometry(starPoint1), material)
-scene.add(star)
-star.position.set(leftX, topY, commonY)
+const innerRadius = 0.5
+const outerRadius = 1
 
-const star2 = new THREE.Line(starGeometry(starPoint2), material)
-scene.add(star2)
-star2.position.set(rightX, topY, commonY)
+const starMesh = new THREE.Mesh(starGeometry(starPoint1, innerRadius, outerRadius), innerMaterial)
+scene.add(starMesh)
+starMesh.position.set(leftX, topY, commonY)
 
-const star3 = new THREE.Line(starGeometry(starPoint3), material)
-scene.add(star3)
-star3.position.set(leftX, bottomY, commonY)
+const starMesh2 = new THREE.Mesh(starGeometry(starPoint2, innerRadius, outerRadius), innerMaterial)
+scene.add(starMesh2)
+starMesh2.position.set(rightX, topY, commonY)
 
-const star4 = new THREE.Line(starGeometry(starPoint4), material)
-scene.add(star4)
-star4.position.set(rightX, bottomY, commonY)
+const starMesh3 = new THREE.Mesh(starGeometry(starPoint3, innerRadius, outerRadius), innerMaterial)
+scene.add(starMesh3)
+starMesh3.position.set(leftX, bottomY, commonY)
+
+const starMesh4 = new THREE.Mesh(starGeometry(starPoint4, innerRadius, outerRadius), innerMaterial)
+scene.add(starMesh4)
+starMesh4.position.set(rightX, bottomY, commonY)
 
 function animate() {
     requestAnimationFrame(animate)
