@@ -13,10 +13,11 @@ function starGeometry(n) {
 
     const geometry = new THREE.BufferGeometry()
     const vertices = []
+    const smallRadius = 0.5
 
     for (let i = 0; i < n; i++) {
         const angle = (i / n) * Math.PI * 2
-        const radius = i % 2 === 0 ? 1 : 0.5
+        const radius = i % 2 === 0 ? 1 : smallRadius
 
         const x = Math.cos(angle) * radius
         const y = Math.sin(angle) * radius
@@ -67,3 +68,11 @@ function animate() {
 }
 
 animate()
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
+window.addEventListener('resize', onWindowResize, false)
