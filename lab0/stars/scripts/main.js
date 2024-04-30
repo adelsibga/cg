@@ -11,7 +11,7 @@ document.body.appendChild(renderer.domElement)
 // odd = (n-1)/2
 // even = (n/2 -1) сделать два раза если
 // строить звезды прямыми линиями как строится 5конечная звезда не отрывая руки
-
+const _ = undefined
 const INNER_RADIUS = 0.5
 const OUTER_RADIUS = 1
 const STAR_POINTS = 5
@@ -52,14 +52,38 @@ function createStarGeometry(n, innerRadius, outerRadius) {
     return starGeometry(n, innerRadius, outerRadius)
 }
 
-STARS_POSITIONS_ARR.forEach((position, index) => {
-    let geometry = createStarGeometry(STAR_POINTS + index, INNER_RADIUS, OUTER_RADIUS)
-    let material = new THREE.MeshBasicMaterial({color: STARS_COLOR_ARR[index], side: THREE.DoubleSide})
-    let star = new THREE.Mesh(geometry, material)
+function drawShapes(isDrawingStars = true, isDrawingCircle = false, isDrawingPolygon = false) {
+    STARS_POSITIONS_ARR.forEach((position, index) => {
+        if (isDrawingStars) {
+            let geometry = createStarGeometry(STAR_POINTS + index, INNER_RADIUS, OUTER_RADIUS)
+            let material = new THREE.MeshBasicMaterial({color: STARS_COLOR_ARR[index], side: THREE.DoubleSide})
+            let star = new THREE.Mesh(geometry, material)
 
-    star.position.copy(position)
-    scene.add(star)
-})
+            star.position.copy(position)
+            scene.add(star)
+        }
+
+        if (isDrawingCircle) {
+            let circleGeometry = new THREE.CircleGeometry(OUTER_RADIUS, 32)
+            let circleMaterial = new THREE.LineBasicMaterial({color: 0xffffff})
+            let circle = new THREE.Line(circleGeometry, circleMaterial)
+
+            circle.position.copy(position)
+            scene.add(circle)
+        }
+
+        if (isDrawingPolygon) {
+            let polygonGeometry = new THREE.CircleGeometry(OUTER_RADIUS, STAR_POINTS + index)
+            let polygonMaterial = new THREE.LineBasicMaterial({color: 0xffffff})
+            let polygon = new THREE.Line(polygonGeometry, polygonMaterial)
+
+            polygon.position.copy(position)
+            scene.add(polygon)
+        }
+    })
+}
+
+drawShapes()
 
 function animate() {
     requestAnimationFrame(animate)
