@@ -34,6 +34,10 @@ const innerMaterial = new THREE.MeshBasicMaterial({
     color: 0xff55ff
 })
 
+// odd = (n-1)/2
+// even = (n/2 -1) сделать два раза если
+// строить звезды прямыми линиями как строится 5конечная звезда не отрывая руки
+
 const starPoint1 = 5,
     starPoint2 = starPoint1 + 1,
     starPoint3 = starPoint1 + 2,
