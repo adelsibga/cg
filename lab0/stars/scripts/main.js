@@ -11,6 +11,7 @@ document.body.appendChild(renderer.domElement)
 // odd = (n-1)/2
 // even = (n/2 -1) сделать два раза если
 // строить звезды прямыми линиями как строится 5конечная звезда не отрывая руки
+
 const _ = undefined
 const INNER_RADIUS = 0.5
 const OUTER_RADIUS = 1
@@ -18,8 +19,12 @@ const STAR_POINTS = 5
 
 const STARS_COLOR = 0xff55ff
 const STARS_COLOR_ARR = [0xffd700, 0xff55ff, 0x00ff00, 0x0000ff]
+const CIRCLE_COLOR = 0xff55ff
+const CIRCLE_COLOR_ARR = [0xffd700, 0xff55ff, 0x00ff00, 0x0000ff]
+const POLYGON_COLOR = 0xff55ff
+const POLYGON_COLOR_ARR = [0xffd700, 0xff55ff, 0x00ff00, 0x0000ff]
 
-const STARS_POSITIONS_ARR = [
+const SHAPES_POSITIONS_ARR = [
     new THREE.Vector3(-1.5, 1.5, 0),
     new THREE.Vector3(1.5, 1.5, 0),
     new THREE.Vector3(-1.5, -1.5, 0),
@@ -53,7 +58,7 @@ function createStarGeometry(n, innerRadius, outerRadius) {
 }
 
 function drawShapes(isDrawingStars = true, isDrawingCircle = false, isDrawingPolygon = false) {
-    STARS_POSITIONS_ARR.forEach((position, index) => {
+    SHAPES_POSITIONS_ARR.forEach((position, index) => {
         if (isDrawingStars) {
             let geometry = createStarGeometry(STAR_POINTS + index, INNER_RADIUS, OUTER_RADIUS)
             let material = new THREE.MeshBasicMaterial({color: STARS_COLOR_ARR[index], side: THREE.DoubleSide})
@@ -65,7 +70,7 @@ function drawShapes(isDrawingStars = true, isDrawingCircle = false, isDrawingPol
 
         if (isDrawingCircle) {
             let circleGeometry = new THREE.CircleGeometry(OUTER_RADIUS, 32)
-            let circleMaterial = new THREE.LineBasicMaterial({color: 0xffffff})
+            let circleMaterial = new THREE.LineBasicMaterial({color: CIRCLE_COLOR_ARR[index]})
             let circle = new THREE.Line(circleGeometry, circleMaterial)
 
             circle.position.copy(position)
@@ -74,7 +79,7 @@ function drawShapes(isDrawingStars = true, isDrawingCircle = false, isDrawingPol
 
         if (isDrawingPolygon) {
             let polygonGeometry = new THREE.CircleGeometry(OUTER_RADIUS, STAR_POINTS + index)
-            let polygonMaterial = new THREE.LineBasicMaterial({color: 0xffffff})
+            let polygonMaterial = new THREE.LineBasicMaterial({color: POLYGON_COLOR_ARR[index]})
             let polygon = new THREE.Line(polygonGeometry, polygonMaterial)
 
             polygon.position.copy(position)
@@ -83,7 +88,7 @@ function drawShapes(isDrawingStars = true, isDrawingCircle = false, isDrawingPol
     })
 }
 
-drawShapes()
+drawShapes(_, true, true)
 
 function animate() {
     requestAnimationFrame(animate)
